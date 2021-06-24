@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Cau hinh Redux
+import {Provider} from 'react-redux';
+import {store} from './Redux/configStore';
+// thu vien ant.design
+import 'antd/dist/antd.css';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App/>
+  </Provider>,
   document.getElementById('root')
 );
 
