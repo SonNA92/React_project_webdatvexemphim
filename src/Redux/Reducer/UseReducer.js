@@ -1,4 +1,4 @@
-import { DANG_NHAP } from "../../action/types/FilmType";
+import { DANG_NHAP, THONG_TIN_TAI_KHOAN } from "../../action/types/FilmType";
 import { USER_LOGIN } from "../../util/setting";
 
 
@@ -11,7 +11,8 @@ if (localStorage.getItem(USER_LOGIN)){
 
 
 const stateDefault = {
-    userLogin:usLogin
+    userLogin:usLogin,
+    thongTinTaiKhoan:{}
 }
 
 export const UserReducer = (state = stateDefault,action) => {
@@ -21,6 +22,11 @@ export const UserReducer = (state = stateDefault,action) => {
             return {...state};
 
         }
+        case THONG_TIN_TAI_KHOAN:{
+            state.thongTinTaiKhoan = action.thongTinTaiKhoan;
+            return {...state};
+        }
+        
         default : {
             return {...state}
         }

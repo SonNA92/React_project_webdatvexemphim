@@ -1,0 +1,23 @@
+/* CSS PAGE SEARCH */
+.listFilmSearch{
+    height: 700px;
+    background-color:#cac9c5;
+    overflow: hidden;
+}
+.listFilmSearch .img-animation{
+    width: 250px;
+    height: 150px;
+    border-radius: 15px;
+}
+.search-content{
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.search-content::-webkit-scrollbar{
+    width: 3px;
+    background-color: white;
+}
+.search-content::-webkit-scrollbar-thumb{
+    background-color: orange;
+}

@@ -1,76 +1,95 @@
-/* CSS HEADER */
-.navbar-text{
-    display: flex;
-    font-size: 16px;
+/* CSS GLOBAL */
+body p{
+    margin-bottom: 0;
 }
-.navbar-text .nav-item .nav-link{
-    color: black;
+/* css animation khi hover vào ảnh */
+.img-animation{
+    position: relative;
 }
-.navbar-text .nav-item .nav-link:hover{
-    color: red;
-}
-.logo-top{
-    margin-right: 250px;
-}
-.user-login{
-    display: flex;
-}
-.btn-user{
-    width: auto;
-    height: 38px;
-    text-align: center;
-    background-color: #28a745;
-    border-radius: 10px;
-    border: none;
-}
-.btnLog{
-    width: 110px;
-    height: 38px;
-    background-color: #28a745;
-    border-radius: 10px;
-    border: none;
-}
-.dropdown-menu{
-    box-shadow: 5px 5px 15px 3px #888888;
-}
-/* CSS FORM */
-.formLog{
-    height: 600px;
-    color: white;
-    background-color: rgba(20,50,93,.9);
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 20px;
-}
-/* CSS IMG */
-.imgLogo{
-    width: 200px;
-    height: 100px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-.social-Log{
+.animation-overlay{
+    position: absolute;
     width: 100%;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.img-social-log{
-    width: 100%;
-    height: 40px;
-}
-/* CSS COMPONENT LOADING */
-.loading{
-    position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    font-size: 2rem;
-    color: white;
+    bottom: 0;
+    display: none;
 }
+.img-animation:hover .animation-overlay{
+    display: block;
+    background-color: rgba(20,50,93,.8);
+}
+
+/* CSS DÙNG CHUNG CHO CAROUSEL */
+.carousel-control-prev-icon{
+    background-image: url(./asset/image/icon-prev.png);
+}
+.carousel-control-next-icon{
+    background-image: url(./asset/image/icon-next.png);
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 40px;
+    height: 40px;
+}
+.carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .6s;
+	transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+	opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
+}
+
+/* CSS DÙNG CHUNG CHO TABPANE */
+.pills-tab-movie{
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+.pills-tab-movie .nav-item{
+    width: 180px;
+    margin-right: 10px;
+    text-align: center;
+}
+.pills-tab-movie .nav-item .nav-link:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 153, 0);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: orange;
+}
+.nav-pills .nav-link{
+    background-color: papayawhip;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,6 +14,9 @@ import { AdminTemplate } from './Templates/AdminTemplate/AdminTemplate';
 import AdminPage from './pages/AdminPage/AdminPage';
 import QuanLyPhim from './pages/AdminPage/QuanLyPhim/QuanLyPhim';
 import ThemPhim from './pages/AdminPage/QuanLyPhim/ThemPhim';
+import UserAccount from './pages/UserAccount/UserAccount';
+import UserHistory from './pages/UserAccount/UserHistory/UserHistory';
+import Search from './pages/Search/Search';
 
 export const history = createBrowserHistory();
 
@@ -25,9 +28,11 @@ function App() {
       <Switch>
         <HomeTemplate exact path="/home" component={Homes}/>
         <UserTemplate exact path="/login" component={Login}/>
+        <HomeTemplate exact path="/timkiem/:id" component={Search}/>
         <HomeTemplate exact path="/detail/:postId" component={Detail} />
         <UserTemplate exact path="/register" component={Register} />
         <HomeTemplate exact path="/checkout/:id" component={Checkout}/>
+        <HomeTemplate exact path="/useraccount/:id" component={UserAccount}/>
         <AdminTemplate exact path="/admin" component={AdminPage}/>
         <AdminTemplate exact path="/admin/films" component={QuanLyPhim}/>
         <AdminTemplate exact path="/admin/addfilm" component={ThemPhim}/>

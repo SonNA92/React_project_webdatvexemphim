@@ -5,6 +5,8 @@ import {useDispatch} from 'react-redux';
 import { dangNhapAction } from '../../action/UserAction';
 import { history } from '../../App';
 import { NavLink } from 'react-router-dom';
+import "./styleLogin.css";
+
 
 
 
@@ -17,7 +19,6 @@ export default function Login(props) {
             matKhau:''
         },
         onSubmit:(values) => {
-            console.log(values);
             // gui thong tin dang nhap ve backend
             dispatch(dangNhapAction(values));
 

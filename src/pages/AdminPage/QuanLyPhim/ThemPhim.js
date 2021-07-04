@@ -8,14 +8,15 @@ export default function ThemPhim(props) {
     const dispatch = useDispatch();
     const formik = useFormik({
         initialValues:{
-            maPhim:'',
+            maPhim: 0,
             tenPhim:'',
+            biDanh:'',
             trailer:'',
             moTa:'',
             hinhAnh:'',
             maNhom:'GP01',
             ngayKhoiChieu:'',
-            danhGia:'10'
+            danhGia: 0
         },
         onSubmit:(values)=>{
             console.log(values);
@@ -23,16 +24,15 @@ export default function ThemPhim(props) {
             let formData = new FormData();
             for (let key in values){
                 if (key === 'hinhAnh'){
-                    formData.append('File',values[key],values[key].name)
+                    formData.append(key,values[key].name);
                 }else{
-                    formData.append(key,values[key])
+                    formData.append(key,values[key]);
                 }
-               
+                
             }
+            console.log(formData)
             dispatch(themPhimAction(formData));
-            // formData.forEach((value,key)=>{
-
-            // })
+            
         }
     });
 
@@ -45,6 +45,10 @@ export default function ThemPhim(props) {
     const changeDate = (values,dateString)=>{
         formik.setFieldValue('ngayKhoiChieu',dateString)
     }
+    const changeMaPhim = (e) => {
+        let {maPhim,value} = e.target;
+        formik.setFieldValue('maPhim',parseInt(value));
+    }
     return (
         <form className="container" onSubmit={formik.handleSubmit}>
             <h3>Them phim</h3>
@@ -52,11 +56,15 @@ export default function ThemPhim(props) {
                 <div className="col-6">
                     <div className="form-group">
                         <p>Ma Phim</p>
-                        <input className="form-control" name="maPhim" onChange={formik.handleChange} />
+                        <input className="form-control" name="maPhim" onChange={changeMaPhim} />
                     </div>
                     <div className="form-group">
                         <p>Ten Phim</p>
                         <input className="form-control" name="tenPhim" onChange={formik.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <p>Bí danh</p>
+                        <input className="form-control" name="biDanh" onChange={formik.handleChange} />
                     </div>
                     <div className="form-group">
                         <p>Mo ta</p>
@@ -66,7 +74,7 @@ export default function ThemPhim(props) {
                 <div className="col-6">
                 <div className="form-group">
                         <p>Ngay Khoi Chieu</p>
-                        <DatePicker className="form-control" onChange={changeDate} format={'DD/MM/YYYY'} />
+                        <DatePicker className="form-control" name="ngayKhoiChieu" onChange={changeDate} format={'DD/MM/YYYY'} />
                     </div>
                     <div className="form-group">
                         <p>Trailer</p>
@@ -74,7 +82,7 @@ export default function ThemPhim(props) {
                     </div>
                     <div className="form-group">
                         <p>Hinh anh</p>
-                        <input className="form-control" name="hinhAnh" type="file" onChange={changeFile} />
+                        <input className="form-control" name="hinhAnh" type="file" style={{height:'45px'}} onChange={changeFile} />
                     </div>  
                     <div className="form-group">
                         <button type="submit" className="btn btn-success">Them phim</button>

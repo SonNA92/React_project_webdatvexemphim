@@ -4,8 +4,11 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { dangKyAction } from '../../action/UserAction';
 import { NavLink } from 'react-router-dom';
+import "./styleRegister.css";
+
 
 export default function Register(props) {
+
     const dispatch = useDispatch();
     // su dung thu vien Formik de lay du lieu nguoi dung
     const formik = useFormik({
@@ -26,8 +29,7 @@ export default function Register(props) {
             hoTen: Yup.string().required('họ tên không được bỏ trống')
         }),
         onSubmit: (values) => {
-            // values la obj chua cac gia tri nhap vao tu input
-            console.log(values);
+            
             // dua du lieu len API
             const action = dangKyAction(values);
             dispatch(action);

@@ -15,6 +15,14 @@ export class baseService {
         });
         return promise;
     }
+    // get2: ko cần xác thực đăng nhập
+    get2 = (url) => {
+        let promise = axios({
+            url:`${DOMAIN}${url}`,
+            method:'GET',
+        });
+        return promise;
+    }
     post = (url,data) => {
         let promise = axios({
             url:`${DOMAIN}${url}`,

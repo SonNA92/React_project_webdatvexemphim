@@ -1,10 +1,13 @@
-import { DAT_GHE, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, XOA_DANH_SACH_GHE_DANG_DAT } from "../../action/types/FilmType";
+import { DAT_GHE, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, TIM_KIEM_PHIM, XOA_DANH_SACH_GHE_DANG_DAT } from "../../action/types/FilmType";
 
 const stateDefault = {
     arrFilm:[{maPhim:1,tenPhim:'ABC',hinhAnh:'https://picsum.photos/200/200'}],
     thongTinChiTiet:{},
+    thongTinLichChieuNgay:[],
     chiTietPhongVe:{},
-    danhSachGheDangDat:[]
+    danhSachGheDangDat:[],
+    danhSachPhimTimKiem:[]
+    
 }
 
 export const FilmReducer = (state = stateDefault,action) => {
@@ -19,6 +22,10 @@ export const FilmReducer = (state = stateDefault,action) => {
         }
         case SET_CHI_TIET_PHONG_VE:{
             state.chiTietPhongVe = action.chiTietPhongVe
+            return {...state};
+        }
+        case SET_CHI_TIET_PHIM_THEO_NGAY: {
+            state.thongTinLichChieuNgay= action.thongTinLichChieuNgay;
             return {...state};
         }
         case DAT_GHE:{
@@ -36,6 +43,11 @@ export const FilmReducer = (state = stateDefault,action) => {
         case XOA_DANH_SACH_GHE_DANG_DAT:{
             state.danhSachGheDangDat = [];
             return {...state};
+        }
+        case TIM_KIEM_PHIM:{
+            state.danhSachPhimTimKiem = action.danhSachPhimTimKiem;
+            return {...state};
+            
         }
 
         default: return state;
