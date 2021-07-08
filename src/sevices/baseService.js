@@ -5,6 +5,7 @@ export class baseService {
     constructor(){
 
     }
+    // PHƯƠNG THỨC GET
     get = (url) => {
         let promise = axios({
             url:`${DOMAIN}${url}`,
@@ -23,6 +24,7 @@ export class baseService {
         });
         return promise;
     }
+    // PHƯƠNG THỨC POST
     post = (url,data) => {
         let promise = axios({
             url:`${DOMAIN}${url}`,
@@ -34,6 +36,17 @@ export class baseService {
         }); 
         return promise;
     }
+    // post2 : ko cần xác thực đăng nhập
+    post2 = (url,data) => {
+        let promise = axios({
+            url:`${DOMAIN}${url}`,
+            method:'POST',
+            data:data,
+            
+        }); 
+        return promise;
+    }
+    // PHƯƠNG THỨC PUT
     put = (url,data) => {
         let promise = axios({
             url:`${DOMAIN}${url}`,
@@ -45,6 +58,17 @@ export class baseService {
         });
         return promise;
     }
+    // put2: ko cần xác thực đăng nhập
+    put2 = (url,data) => {
+        let promise = axios({
+            url:`${DOMAIN}${url}`,
+            method:'PUT',
+            data:data,
+            
+        });
+        return promise;
+    }
+    // PHƯƠNG THỨC DELETE
     delete = (url) => {
         let promise = axios({
             url:`${DOMAIN}${url}`,

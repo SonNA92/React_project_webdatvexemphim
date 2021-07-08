@@ -1,12 +1,13 @@
-import { DAT_GHE, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, TIM_KIEM_PHIM, XOA_DANH_SACH_GHE_DANG_DAT } from "../../action/types/FilmType";
+import { DAT_GHE, SET_CHI_TIET_CUM_RAP, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL, TIM_KIEM_PHIM, XOA_DANH_SACH_GHE_DANG_DAT } from "../../action/types/FilmType";
 
 const stateDefault = {
-    arrFilm:[{maPhim:1,tenPhim:'ABC',hinhAnh:'https://picsum.photos/200/200'}],
+    arrFilm:[],
     thongTinChiTiet:{},
     thongTinLichChieuNgay:[],
     chiTietPhongVe:{},
     danhSachGheDangDat:[],
-    danhSachPhimTimKiem:[]
+    danhSachHeThongRap:[]
+    
     
 }
 
@@ -45,9 +46,13 @@ export const FilmReducer = (state = stateDefault,action) => {
             return {...state};
         }
         case TIM_KIEM_PHIM:{
-            state.danhSachPhimTimKiem = action.danhSachPhimTimKiem;
+            state.arrFilm = action.danhSachPhimTimKiem;
             return {...state};
             
+        }
+        case SET_CHI_TIET_CUM_RAP:{
+            state.danhSachHeThongRap = action.danhSachHeThongRap;
+            return {...state};
         }
 
         default: return state;

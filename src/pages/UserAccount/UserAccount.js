@@ -48,7 +48,7 @@ export default function UserAccount(props) {
             errorMessage = name + ' không được bỏ trống'
         }
         // validation email
-        let typeEmail = event.target.getAttribute('typeEmail');
+        let typeEmail = event.target.getAttribute('typeemail');
         let reEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (typeEmail === 'email') {
             if (!reEmail.test(newValues[name])) {
@@ -56,7 +56,7 @@ export default function UserAccount(props) {
             }
         }
         // validation họ tên
-        let typeHoTen = event.target.getAttribute('typeHoTen');
+        let typeHoTen = event.target.getAttribute('typehoten');
         const reHoTen = new RegExp("^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\\s]+$"
         );
         if (typeHoTen === 'hoTen') {
@@ -65,7 +65,7 @@ export default function UserAccount(props) {
             }
         }
         // validation mật khẩu
-        let typeMatKhau = event.target.getAttribute('typeMatKhau');
+        let typeMatKhau = event.target.getAttribute('typematkhau');
         const reMatKhau = /^(?=.*\d)(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,10}$/;
         if (typeMatKhau === 'matKhau') {
             if (!reMatKhau.test(newValues[name])) {
@@ -73,7 +73,7 @@ export default function UserAccount(props) {
             }
         }
         // validation số điện thoại
-        let typeSoDT = event.target.getAttribute('typeSoDT');
+        let typeSoDT = event.target.getAttribute('typesodt');
         const reSoDT = /((09|03|07|08|05)+([0-9]{8})\b)/g;
         if (typeSoDT === 'soDT') {
             if (!reSoDT.test(newValues[name]) || newValues[name].length > 10) {
@@ -96,7 +96,7 @@ export default function UserAccount(props) {
         // Form hop le khi tat ca input khong duoc de trong va hop le
         let { values, errors } = state;
         let valid = true;
-
+        console.log(values)
         for (let keyName in errors) {
             if (errors[keyName] !== '') {
                 // co 1 truong hien thi bi loi
@@ -116,7 +116,7 @@ export default function UserAccount(props) {
             values: thongTinTaiKhoanUpdate
         })
     }, [number])
-    // console.log(thongTinTaiKhoanUpdate)
+    
 
     return (
         <div>
@@ -139,7 +139,7 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Email</p></div>
                                             <div className="col-8">
-                                                <input typeEmail="email" id="changeInput1" className="form-control" name="email" value={state.values.email} disabled="true" onChange={handleChangeInput} />
+                                                <input typeemail="email" id="changeInput1" className="form-control" name="email" value={state.values.email} disabled="true" onChange={handleChangeInput} />
                                                 <p className="text text-warning text-danger">{state.errors?.email}</p>
                                             </div>
 
@@ -147,14 +147,14 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Họ tên</p></div>
                                             <div className="col-8">
-                                                <input typeHoTen="hoTen" id="changeInput2" className="form-control" name="hoTen" disabled="true" value={state.values.hoTen} onChange={handleChangeInput} />
+                                                <input typehoten="hoTen" id="changeInput2" className="form-control" name="hoTen" disabled="true" value={state.values.hoTen} onChange={handleChangeInput} />
                                                 <p className="text text-warning text-danger">{state.errors?.hoTen}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Số điện thoại</p></div>
                                             <div className="col-8">
-                                                <input typeSoDT="soDT" id="changeInput3" className="form-control" name="soDT" disabled="true" value={state.values.soDT} onChange={handleChangeInput} />
+                                                <input typesodt="soDT" id="changeInput3" className="form-control" name="soDT" disabled="true" value={state.values.soDT} onChange={handleChangeInput} />
                                                 <p className="text text-warning text-danger">{state.errors?.soDT}</p>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Mật khẩu</p></div>
                                             <div className="col-8">
-                                                <input typeMatKhau="matKhau" id="changeInput4" className="form-control" name="matKhau" disabled="true" value={state.values.matKhau} onChange={handleChangeInput} />
+                                                <input typematkhau="matKhau" id="changeInput4" className="form-control" name="matKhau" disabled="true" value={state.values.matKhau} onChange={handleChangeInput} />
                                                 <p className="text text-warning text-danger">{state.errors?.matKhau}</p>
                                             </div>
                                         </div>

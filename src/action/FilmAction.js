@@ -2,7 +2,7 @@ import axios from 'axios'
 import { quanLyPhimService } from '../sevices/QuanLyPhimService';
 import { ACCESSTOKEN } from '../util/setting';
 import { displayLoadingActon, hideLoadingActon } from './LoadingAction';
-import { SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL,TIM_KIEM_PHIM } from './types/FilmType';
+import { SET_CHI_TIET_CUM_RAP, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL,TIM_KIEM_PHIM } from './types/FilmType';
 import { history } from '../App';
 
 
@@ -69,18 +69,6 @@ export const layChiTietLichChieuNgay = (maNhom) => {
     }
 }
 
-export const themPhimAction = (formData) =>{
-    return async dispatch =>{
-        try{
-            const result = await quanLyPhimService.themPhim(formData);
-            alert('Thêm phim thành công !');
-            // history.replace("/admin/films");
-        }catch (err){
-            console.log(err.response?.data)
-        }
-    }
-}
-
 export const timKiemPhimAction = (tenPhim) => {
     return async dispatch => {
         try{
@@ -94,6 +82,78 @@ export const timKiemPhimAction = (tenPhim) => {
            
 
         }catch (err){
+            alert(err.response?.data)
+        }
+    }
+}
+
+export const themPhimAction = (formData) =>{
+    return async dispatch =>{
+        try{
+            const result = await quanLyPhimService.themPhim(formData);
+            alert('Thêm phim thành công !');
+            // quay về trang phim
+            history.replace("/admin/films");
+        }catch (err){
+            console.log(err.response?.data)
+        }
+    }
+}
+
+
+export const xoaPhimAction = (maPhim) => {
+    return async dispatch =>{
+        try{
+            const result = await quanLyPhimService.xoaPhim(maPhim);
+            alert('Xóa phim thành công !');
+
+            // load lại trang
+            dispatch(getApiFilmAction("GP01"));
+        }catch (err){
+            console.log(err.response?.data)
+            alert(err.response?.data)
+        }
+    }
+}
+
+export const layThongTinCumRapTheoHeThong = (maHeThongRap) => {
+    return async dispatch => {
+        try{
+            const result = await quanLyPhimService.layThongTinCumRapTheoHeTHong(maHeThongRap);
+            dispatch({
+                type: SET_CHI_TIET_CUM_RAP,
+                danhSachHeThongRap: result.data
+            })
+        }catch(error){
+            console.log('error',error.response?.data);
+        }
+    }
+
+}
+
+export const themLichChieuAction = (formData) =>{
+    return async dispatch => {
+        try{
+            const result = await quanLyPhimService.themLichChieu(formData);
+            alert('Thêm lịch chiếu thành công !');
+        }catch(error){
+            console.log(error.response?.data);
+        }
+    }
+}
+
+export const capNhatPhimAction = (formData) => {
+    return async dispatch =>{
+        try{
+            const result = await quanLyPhimService.capNhatPhim(formData);
+            alert('Cập nhật phim thành công !');
+            // quay lại quản lý phim
+            history.replace("/admin/films");
+            // load lại trang
+            dispatch(getApiFilmAction("GP01"));
+            
+        }catch (err){
+            console.log(err.response?.data)
             alert(err.response?.data)
         }
     }

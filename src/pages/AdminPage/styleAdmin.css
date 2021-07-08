@@ -1,0 +1,8 @@
+/* .btn-adminpage{
+    width: 150px;
+} */
+.btn-adminpage:hover{
+    background-color: orange;
+    color: black;
+    border: 1px solid orange;
+}

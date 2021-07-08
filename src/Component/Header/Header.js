@@ -45,7 +45,7 @@ export default function Header(props) {
                 <form className="form-inline my-2 my-lg-0" onSubmit={onSubmit}>
                     <div className="searchMovie mr-2">
                         <input id="input-search" className="input-search form-control mr-sm-2" type="text" placeholder="Nhập tên phim" />
-                        <button type="submit" className="btn-search"><i class="fa fa-search"></i></button>
+                        <button type="submit" className="btn-search"><i className="fa fa-search"></i></button>
                     </div>
                     {/* kiểm tra đăng nhập, true => hiển thị tên tài khoản */}
                     {

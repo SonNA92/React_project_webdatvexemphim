@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { getApiFilmAction } from '../../../action/FilmAction';
+import { getApiFilmAction, timKiemPhimAction, xoaPhimAction } from '../../../action/FilmAction';
 
 export default function QuanLyPhim(props) {
 
@@ -11,51 +11,71 @@ export default function QuanLyPhim(props) {
     useEffect(()=> {
         const action = getApiFilmAction('GP01');
         dispatch(action)
-    })
+    },[])
 
     const columns = [
         {
-          title: 'Ma phim',
+          title: 'Mã phim',
           dataIndex: 'maPhim',
           key: 'maPhim',
           render: (text,film) => <span>{film.maPhim}</span>,
         },
         {
-          title: 'Ten phim',
+          title: 'Tên phim',
           dataIndex: 'tenPhim',
           key: 'tenPhim',
           render: (text,film) => <span>{film.tenPhim}</span>
         },
         {
-          title: 'Hinh anh',
+          title: 'Hình ảnh',
           dataIndex: 'hinhAnh',
           key: 'hinhAnh',
-          render: (text,film) => <img src={film.hinhAnh} alt="" width={50} height={50} />
+          render: (text,film) => <img src={film.hinhAnh} alt="movie" width={50} height={50} />
         },
         {
-            title: 'Mo ta',
+            title: 'Mô tả',
             dataIndex: 'moTa',
             key: 'moTa',
             render: (text,film) => <section>{film.moTa?.length > 50 ? film.moTa.substr(0,50) + '...' : film.moTa}</section>
         },
         {
-          title: 'Action',
+          title: 'Thao tác',
           key: 'action',
-          render: (text,record)=>(
+          render: (text,film)=>(
             <Space size="middle">
-                <NavLink to="/">Tao lich chieu</NavLink>
-                <NavLink to="/">Chinh sua</NavLink>
+                <NavLink className="btn btn-adminpage btn-primary" to={`/admin/taolichchieu/${film.maPhim}`}>Tạo lịch chiếu</NavLink>
+                <NavLink className="btn btn-adminpage btn-primary" to={`/admin/updatefilm/${film.maPhim}`}>Chỉnh sửa</NavLink>
+                <button className="btn btn-adminpage btn-danger" onClick={()=>{
+                  // dispatch mã phim lên store
+                  dispatch(xoaPhimAction(film.maPhim));
+                }} >Xóa</button>
+
             </Space>
           )      
         }     
     ];
       
     const data = arrFilm;
-      
+    // tìm kiếm phim
+    const timKiemPhim = (searchKey) => {
+      if (searchKey.trim() !== ''){
+        dispatch(timKiemPhimAction(searchKey));
+      }else{
+        dispatch(getApiFilmAction('GP01'));
+      }
+  } 
 
     return (
         <div className="container">
-            <NavLink className="mb-2 btn btn-primary" to="/admin/addfilm"> Them Phim</NavLink>
+            <NavLink className="mb-4 btn btn-adminpage btn-primary" to="/admin/addfilm"> Thêm Phim</NavLink>
+            <div className="row mb-4">
+              <div className="col-6">
+                <input type="search" id="search-film" className="form-control" placeholder="Nhập vào tên phim" onChange={()=>{
+                  let searchKey = document.getElementById('search-film').value;
+                  timKiemPhim(searchKey);
+                }}/>
+              </div>
+            </div>
             <Table columns={columns} dataSource={data} />
         </div>
     )

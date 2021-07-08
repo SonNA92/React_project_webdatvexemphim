@@ -17,11 +17,23 @@ export class QuanLyPhimService extends baseService {
     layChiTietPhimTheoNgay = (maNhom) => {
         return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${maNhom}`)
     }
-    themPhim = (data) => {
-        return this.post('/api/QuanLyPhim/ThemPhim',data);
-    }
     timKiemPhim = (tenPhim) => {
         return this.get2(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`)
+    }
+    themPhim = (data) => {
+        return this.post('/api/QuanLyPhim/ThemPhimUploadHinh',data);
+    }
+    layThongTinCumRapTheoHeTHong = (maHeThongRap) => {
+        return this.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
+    }
+    themLichChieu = (data) => {
+        return this.post('/api/QuanLyDatVe/TaoLichChieu',data);
+    }
+    xoaPhim = (maPhim) => {
+        return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+    }
+    capNhatPhim = (formData) => {
+        return this.post('/api/QuanLyPhim/CapNhatPhimUpload',formData);
     }
 }
 

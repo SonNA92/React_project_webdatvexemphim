@@ -3,18 +3,30 @@ import {history} from '../App';
 import { ACCESSTOKEN, USER_LOGIN, DOMAIN } from '../util/setting';
 import { layChiTietPhongVe } from './FilmAction';
 import { displayLoadingActon, hideLoadingActon } from './LoadingAction';
-import { quanLyPhimService } from '../sevices/QuanLyPhimService';
-import { DANG_NHAP, THONG_TIN_TAI_KHOAN, XOA_DANH_SACH_GHE_DANG_DAT } from './types/FilmType';
+import { DANG_NHAP, SET_USER, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER, XOA_DANH_SACH_GHE_DANG_DAT } from './types/FilmType';
+import { quanLyNgDungService } from '../sevices/QuanLyNgDungService';
 
 
 
 
+export const layDanhSachNgDungAction = () =>{
+    return async (dispatch) =>{
+        try {
+            const result = await quanLyNgDungService.layDanhSachNgDung();
+            // sau khi lay du lieu tu API ve dua len redux
+            const action = {
+                type:SET_USER,
+                dataUsers: result.data
+            }
+            dispatch(action)
+        } catch (errors) {
+            console.log('errors', errors.response?.data);
+        }
+    }
+}
 
 export const dangKyAction = (thongTinNguoiDung) => {
-
-
     return async dispatch => {
-
         try {
             const result = await axios({
                 url:'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy',
@@ -110,7 +122,8 @@ export const layThongTinAction = (taiKhoan)=>{
             })
 
         }catch (err){
-            console.log(err.response?.data);
+            
+            alert(err.response?.data);
         }
     }
 }
@@ -133,8 +146,52 @@ export const capNhatThongTinTaiKhoan = (thongTinTaiKhoan) => {
             alert('Cập nhật thông tin thành công!');
 
         }catch (err){
-            console.log(err.response?.data);
+            
             alert(err.response?.data);
+        }
+    }
+}
+
+export const themNguoiDungAction = (data) => {
+    return async dispatch => {
+        try{
+            const result = await quanLyNgDungService.themNguoiDung(data);
+            alert ('Thêm người dùng thành công');
+            // quay về trang user
+            history.replace('/admin/users');
+
+        }catch (err) {
+            alert(err.response.data)
+        }
+    }
+}
+
+export const timKiemNguoiDungAction = (searchKey) => {
+    return async dispatch => {
+        try{
+            const result = await quanLyNgDungService.timKiemNguoiDung(searchKey);
+            // đưa dữ liệu lên store
+            dispatch({
+                type: TIM_KIEM_USER,
+                danhSachNguoiDungTimKiem: result.data
+            })
+
+        }catch (err){
+            alert (err.response.data)
+        }
+    }
+}
+
+export const xoaNguoiDungAction = (taiKhoan) => {
+    return async dispatch => {
+        try{
+            const result = await quanLyNgDungService.xoaNguoiDung(taiKhoan);
+            alert('Xóa thành công!');
+            // load lai trang
+            dispatch(layDanhSachNgDungAction());
+
+        }catch (err){
+            alert(err.response.data);
         }
     }
 }

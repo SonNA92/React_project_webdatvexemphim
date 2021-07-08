@@ -17,6 +17,12 @@ import ThemPhim from './pages/AdminPage/QuanLyPhim/ThemPhim';
 import UserAccount from './pages/UserAccount/UserAccount';
 import UserHistory from './pages/UserAccount/UserHistory/UserHistory';
 import Search from './pages/Search/Search';
+import UpdateFilms from './pages/AdminPage/QuanLyPhim/UpdatePhim';
+import QuanLyNgDung from './pages/AdminPage/QuanLyNgDung/QuanLyNgDung';
+import ThemNgDung from './pages/AdminPage/QuanLyNgDung/ThemNgDung';
+import UpdateNgDung from './pages/AdminPage/QuanLyNgDung/UpdateNgDung';
+import TaoLichChieuPhim from './pages/AdminPage/QuanLyPhim/TaoLichChieuPhim';
+
 
 export const history = createBrowserHistory();
 
@@ -36,6 +42,12 @@ function App() {
         <AdminTemplate exact path="/admin" component={AdminPage}/>
         <AdminTemplate exact path="/admin/films" component={QuanLyPhim}/>
         <AdminTemplate exact path="/admin/addfilm" component={ThemPhim}/>
+        <AdminTemplate exact path="/admin/updatefilm/:id" component={UpdateFilms}/>
+        <AdminTemplate exact path="/admin/taolichchieu/:id" component={TaoLichChieuPhim}/>
+        <AdminTemplate exact path="/admin/users" component={QuanLyNgDung}/>
+        <AdminTemplate exact path="/admin/adduser" component={ThemNgDung}/>
+        <AdminTemplate exact path="/admin/updateuser/:id" component={UpdateNgDung}/>
+
         <HomeTemplate component={Homes}/>
       </Switch>
     </Router>

@@ -9,7 +9,7 @@ import "./styleSearch.css";
 export default function Search(props) {
 
     const dispatch = useDispatch();
-    let { danhSachPhimTimKiem } = useSelector(state => state.FilmReducer);
+    let { arrFilm } = useSelector(state => state.FilmReducer);
     let searchKey = props.match.params.id;
     useEffect(() => {
 
@@ -18,7 +18,7 @@ export default function Search(props) {
     })
     // render danh sách phim tìm thấy
     const renderPhimSearch = () => {
-        return danhSachPhimTimKiem?.map((item, index) => {
+        return arrFilm?.map((item, index) => {
             return <div className="col-6 mb-4" key={index}>
                 <div className="row">
                     <div className="col-6">
@@ -42,7 +42,7 @@ export default function Search(props) {
         <>
             <div id="listFilmSearch" className="listFilmSearch pt-5">
                 <div className="search-content container">
-                    <h5 id="text-notice-search" className="text-danger">Có {danhSachPhimTimKiem.length} kết quả tìm thấy cho từ khóa: {searchKey}</h5>
+                    <h5 id="text-notice-search" className="text-danger">Có {arrFilm.length} kết quả tìm thấy cho từ khóa: {searchKey}</h5>
                     <div className="row mt-4">
                         {renderPhimSearch()}
                     </div>
