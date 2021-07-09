@@ -97,7 +97,7 @@ export default function UpdateFilms(props) {
                     <div className="form-group">
                         <p>Ngày khởi chiếu</p>
                         <input type="date" className="form-control" name="ngayKhoiChieu" onChange={handelChange} />
-                        <p className="text-danger">Ngày khởi chiếu hiện tại: {thongTinChiTiet.ngayKhoiChieu}</p>
+                        <p className="text-warning">Ngày khởi chiếu hiện tại: {thongTinChiTiet.ngayKhoiChieu}</p>
                     </div>
                     <div className="form-group">
                         <p>Trailer</p>
@@ -106,7 +106,7 @@ export default function UpdateFilms(props) {
                     <div className="form-group">
                         <p>Hình ảnh</p>
                         <input className="form-control" name="hinhAnh" type="file" style={{ height: '45px' }} onChange={handelChange} />
-                        <p className="text-danger">Hình ảnh hiện tại: {thongTinChiTiet.hinhAnh}</p>
+                        <p className="text-warning">Hình ảnh hiện tại: {thongTinChiTiet.hinhAnh}</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ export default function UpdateFilms(props) {
                 }}>Chỉnh sửa</button>
                 <button type="submit" className="btn btn-update btn-success mx-4">Hoàn tất</button>
             </div>
-            <p className="text-danger text-center">Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc </p>
+            <p className="text-danger text-center">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </p>
 
         </form>
     )

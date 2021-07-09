@@ -181,7 +181,7 @@ export default function UpdateNgDung(props) {
                 }}>Chỉnh sửa</button>
                 <button type="submit" className="btn btn-update btn-success mx-4">Hoàn tất</button>   
             </div>
-            <p className="text-danger text-center">Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc </p>
+            <p className="text-danger text-center">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </p>
         </form>
     )
 }

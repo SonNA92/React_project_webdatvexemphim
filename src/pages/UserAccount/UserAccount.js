@@ -202,6 +202,7 @@ export default function UserAccount(props) {
                                     }}>Cập nhật</button>
                                 </div>
                             </div>
+                            <p className="text-center text-danger mt-2"> * Nhấp vào Sửa thông tin để thay đổi và Cập nhật để hoàn tất thay đổi !</p>
                         </div>
                         {/* phần lịch sử đặt vé */}
                         <div className="tab-pane fade" id="pills-profile-user" role="tabpanel" aria-labelledby="pills-profile-tab-user"> 
