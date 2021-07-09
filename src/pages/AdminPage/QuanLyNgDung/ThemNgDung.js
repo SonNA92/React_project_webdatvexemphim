@@ -37,8 +37,8 @@ export default function ThemNgDung(props) {
 
 
     return (
-        <form className="container" onSubmit={formik.handleSubmit}>
-            <h3>Thêm Người Dùng</h3>
+        <form className="container form-admin-page" onSubmit={formik.handleSubmit}>
+            <h3 className="mb-4">Thêm Người Dùng</h3>
             <div className="row">
                 <div className="col-6">
                     <div className="form-group">

@@ -72,39 +72,39 @@ export default function UpdateFilms(props) {
     
 
     return (
-        <form id="formUpdateFilms" className="container" onSubmit={handelSubmit} >
-            <h3>Cập Nhật Phim</h3>
+        <form id="formUpdateFilms" className="container form-admin-page" onSubmit={handelSubmit} >
+            <h3 className="mb-4">Cập Nhật Phim</h3>
             <div className="row">
                 <div className="col-6">
                     <div className="form-group">
-                        <p className="mb-2">Mã phim</p>
+                        <p>Mã phim</p>
                         <input className="form-control" name="maPhim" value={state.values.maPhim} disabled onChange={handelChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Tên phim</p>
+                        <p>Tên phim</p>
                         <input className="form-control" name="tenPhim" value={state.values.tenPhim} onChange={handelChange}/>
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Bí danh</p>
+                        <p>Bí danh</p>
                         <input className="form-control" name="biDanh" value={state.values.biDanh} onChange={handelChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Mô tả</p>
+                        <p>Mô tả</p>
                         <input className="form-control" name="moTa" value={state.values.moTa} onChange={handelChange} />
                     </div>
                 </div>
                 <div className="col-6">
                     <div className="form-group">
-                        <p className="mb-2">Ngày khởi chiếu</p>
+                        <p>Ngày khởi chiếu</p>
                         <input type="date" className="form-control" name="ngayKhoiChieu" onChange={handelChange} />
                         <p className="text-danger">Ngày khởi chiếu hiện tại: {thongTinChiTiet.ngayKhoiChieu}</p>
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Trailer</p>
+                        <p>Trailer</p>
                         <input className="form-control" name="trailer" value={state.values.trailer} onChange={handelChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Hình ảnh</p>
+                        <p>Hình ảnh</p>
                         <input className="form-control" name="hinhAnh" type="file" style={{ height: '45px' }} onChange={handelChange} />
                         <p className="text-danger">Hình ảnh hiện tại: {thongTinChiTiet.hinhAnh}</p>
                     </div>

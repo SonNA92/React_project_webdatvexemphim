@@ -39,7 +39,7 @@ export default function Login(props) {
                     <input type="password" className="form-control" name="matKhau" placeholder="Mật khẩu" onChange={formik.handleChange} />
                 </div>
                 <div className="form-group mt-5">
-                    <button className="btnLog mr-2">Đăng nhập</button>
+                    <button type="submit" className="btnLog mr-2">Đăng nhập</button>
                     <button type="button" className="btnLog mr-2" onClick={()=>{
                         history.replace('/register');
                     }}>Đăng ký</button>

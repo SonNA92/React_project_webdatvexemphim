@@ -29,7 +29,7 @@ export const history = createBrowserHistory();
 
 function App() {
   return (
-    <Router history ={history}>
+    <Router history ={history} basename={'/subdirectory'}>
     <Loading/>
       <Switch>
         <HomeTemplate exact path="/home" component={Homes}/>

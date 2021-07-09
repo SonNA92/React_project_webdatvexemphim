@@ -44,38 +44,38 @@ export default function ThemPhim(props) {
         formik.setFieldValue('maPhim',parseInt(value));
     }
     return (
-        <form id="formAddFilms" className="container" onSubmit={formik.handleSubmit}>
-            <h3>Thêm Phim</h3>
+        <form id="formAddFilms" className="container form-admin-page" onSubmit={formik.handleSubmit}>
+            <h3 className="mb-4">Thêm Phim</h3>
             <div className="row">
                 <div className="col-6">
                     <div className="form-group">
-                        <p className="mb-2">Mã phim</p>
+                        <p>Mã phim</p>
                         <input className="form-control" name="maPhim" onChange={changeMaPhim} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Tên phim</p>
+                        <p>Tên phim</p>
                         <input className="form-control" name="tenPhim" onChange={formik.handleChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Bí danh</p>
+                        <p>Bí danh</p>
                         <input className="form-control" name="biDanh" onChange={formik.handleChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Mô tả</p>
+                        <p>Mô tả</p>
                         <input className="form-control" name="moTa" onChange={formik.handleChange} />
                     </div>
                 </div>
                 <div className="col-6">
                 <div className="form-group">
-                        <p className="mb-2">Ngày khởi chiếu</p>
+                        <p>Ngày khởi chiếu</p>
                         <DatePicker className="form-control" name="ngayKhoiChieu" onChange={changeDate} format={'DD/MM/YYYY'} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Trailer</p>
+                        <p>Trailer</p>
                         <input className="form-control" name="trailer" onChange={formik.handleChange} />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Hình ảnh</p>
+                        <p>Hình ảnh</p>
                         <input className="form-control" name="hinhAnh" type="file" style={{height:'45px'}} onChange={changeFile} />
                     </div>  
                       

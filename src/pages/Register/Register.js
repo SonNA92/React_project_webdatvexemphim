@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { dangKyAction } from '../../action/UserAction';
 import { NavLink } from 'react-router-dom';
 import "./styleRegister.css";
+import { history } from '../../App';
 
 
 export default function Register(props) {
@@ -80,7 +81,11 @@ export default function Register(props) {
                     </div>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btnLog mt-4">Đăng ký</button>
+
+                    <button type="submit" className="btnLog mt-4 mr-3">Đăng ký</button>
+                    <button type="button" className="btnLog mt-4 ml-3" onClick={()=>{
+                        history.replace('/login');
+                    }}>Đăng nhập</button>
                 </div>
                 <div style={{ width: '400px', margin: '0 auto' }}>
                     <div className="social-Log mt-5">

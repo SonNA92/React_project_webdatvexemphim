@@ -50,16 +50,16 @@ export default function ThemLichChieu(props) {
 
 
     return (
-        <form className="container" onSubmit={formik.handleSubmit}>
-            <h3 className="mb-5">Thêm Lịch Chiếu</h3>
+        <form className="container form-admin-page" onSubmit={formik.handleSubmit}>
+            <h3 className="mb-4">Thêm Lịch Chiếu</h3>
             <div className="row">
                 <div className="col-6">
                     <div className="form-group">
-                        <p className="mb-2">Mã phim</p>
+                        <p>Mã phim</p>
                         <input className="form-control" name="maPhim" value={props.match.params.id} disabled />
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Chọn hệ thống rạp</p>
+                        <p>Chọn hệ thống rạp</p>
                         <select className="form-control" name="HTRap" onChange={changeHTRap}>
                             <option >Chọn hệ thống rạp</option>
                             <option value="CGV" >CGV</option>
@@ -70,7 +70,7 @@ export default function ThemLichChieu(props) {
                         </select>
                     </div> 
                     <div className="form-group">
-                        <p className="mb-2">Chọn mã rạp</p>
+                        <p>Chọn mã rạp</p>
                         <select onChange={handleChangeSelect} name="maRap" className="form-control">
                             <option value="none">Chọn mã rạp</option>
                             {renderRap()}
@@ -79,11 +79,11 @@ export default function ThemLichChieu(props) {
                 </div>
                 <div className="col-6">
                     <div className="form-group">
-                        <p className="mb-2">Ngày chiếu - Giờ chiếu</p>
+                        <p>Ngày chiếu - Giờ chiếu</p>
                         <DatePicker showTime className="form-control" onChange={changeDate} name="ngayChieuGioChieu" format="DD/MM/YYYY HH:mm:ss"/>
                     </div>
                     <div className="form-group">
-                        <p className="mb-2">Giá vé</p>
+                        <p>Giá vé</p>
                         <input className="form-control" name="giaVe" onChange={changeGiaVe} />
                     </div>     
                 </div>

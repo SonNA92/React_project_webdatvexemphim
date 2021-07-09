@@ -8,7 +8,7 @@ export default function UpdateNgDung(props) {
     const dispatch = useDispatch();
     const {thongTinTaiKhoan} = useSelector(state => state.UserReducer);
     delete thongTinTaiKhoan.loaiNguoiDung; // do API bị lỗi trường này nên bỏ ra
-    const thongTinTaiKhoanUpdate = { ...thongTinTaiKhoan, maLoaiNguoiDung:"KhachHang"};
+    const thongTinTaiKhoanUpdate = { ...thongTinTaiKhoan, maLoaiNguoiDung:""};
     const [number, setNumber] = useState(1);
     const [state,setState] = useState({
         values:{
@@ -93,7 +93,6 @@ export default function UpdateNgDung(props) {
         e.preventDefault();
         let { values, errors } = state;
         let valid = true;
-        console.log(values)
         for (let keyName in errors) {
             if (errors[keyName] !== '') {
                 // co 1 truong hien thi bi loi
@@ -119,8 +118,8 @@ export default function UpdateNgDung(props) {
 
 
     return (
-        <form className="container" onSubmit={handleSubmit}>
-            <h3>Chỉnh Sửa Thông Tin</h3>
+        <form className="container form-admin-page" onSubmit={handleSubmit}>
+            <h3 className="mb-4">Chỉnh Sửa Thông Tin</h3>
             <div className="row">
                 <div className="col-6">
                     <div className="form-group">

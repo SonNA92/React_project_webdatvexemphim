@@ -1,8 +1,28 @@
-/* .btn-adminpage{
-    width: 150px;
-} */
+/* CSS ADMIN PAGE */
 .btn-adminpage:hover{
     background-color: orange;
     color: black;
     border: 1px solid orange;
+}
+.ant-layout-content{
+    background-image: url(../../asset/image/bg-app.jpg);
+    background-size: cover;
+}
+.admin-page{
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-page-content{
+    background-color: #1890ff;
+    padding: 50px;
+    border-radius: 50%;
+}
+.form-admin-page{
+    height: 650px;
+}
+.form-admin-page h3,.form-admin-page p{
+    color: white;
+    margin-bottom: 10px;
 }

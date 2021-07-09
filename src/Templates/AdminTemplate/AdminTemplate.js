@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Route,Redirect,NavLink } from 'react-router-dom';
 // su dung thu vien antdesing de lam giao dien trang 
 import { Layout, Menu } from 'antd';
-import {MenuUnfoldOutlined,MenuFoldOutlined,UserOutlined,VideoCameraOutlined,UploadOutlined,
+import {MenuUnfoldOutlined,MenuFoldOutlined,UserOutlined,VideoCameraOutlined,UploadOutlined,ArrowLeftOutlined
 } from '@ant-design/icons';
 import {useSelector} from 'react-redux';
 import { history } from '../../App';
@@ -44,6 +44,9 @@ export const AdminTemplate = (props) => {
                         <Menu.Item key="2" icon={<UserOutlined />} >
                             <NavLink to="/admin/users">Quản lý người dùng</NavLink>
                         </Menu.Item>
+                        <Menu.Item key="3" icon={<ArrowLeftOutlined/>} >
+                            <NavLink to="/">Về Trang Chủ</NavLink>
+                        </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
@@ -69,8 +72,8 @@ export const AdminTemplate = (props) => {
                     <Content
                         className="site-layout-background"
                         style={{
-                            margin: '24px 16px',
-                            padding: 24,
+                            
+                            padding: 30,
                             minHeight: 280,
                         }}
                     >
