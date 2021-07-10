@@ -11,9 +11,20 @@ export default function HomeTemplate(props) {
           <div>
             <Header />
             <props.component {...propsRoute} />
+            <div id="backToTop" title="Về đầu trang" onClick={()=>{  
+                    window.scrollTo({
+                        top:1000,
+                        left:0,
+                        behavior:'smooth'
+                    })
+                }} >
+                    <a href="#"><i className="fa fa-chevron-up"></i></a>
+            </div>
           </div>
         );
       }}
     />
   );
 }
+
+

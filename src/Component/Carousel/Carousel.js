@@ -6,7 +6,7 @@ export default function Carousel() {
         <div id="carouselMovieControls" className="carousel carousel-fade slide" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src="/img/ban-tay-diet-quy.png" className="img-carousel" alt="movie" />
+                    <img src="/img/ban-tay-diet-quy.png" className="img-carousel w-100 h-100" alt="movie" />
                     <div className="carousel-caption">
                         <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal2">
                             <img src="/img/play-video.png" alt="movie" />
@@ -14,7 +14,7 @@ export default function Carousel() {
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img src="/img/lat-mat-48h.png" className="img-carousel" alt="movie" />
+                    <img src="/img/lat-mat-48h.png" className="img-carousel w-100 h-100" alt="movie" />
                     <div className="carousel-caption">
                         <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal1">
                             <img src="/img/play-video.png" alt="movie" />
@@ -22,7 +22,7 @@ export default function Carousel() {
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img src="/img/trang-ti.jpg" className="img-carousel" alt="movie" />
+                    <img src="/img/trang-ti.jpg" className="img-carousel w-100 h-100" alt="movie" />
                     <div className="carousel-caption">
                         <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal3">
                             <img src="/img/play-video.png" alt="movie" />

@@ -75,3 +75,13 @@
 .icon-star{
     color:#efa318 ;
 }
+
+/* RESPONSIVE PAGE DETAIL */
+@media (max-width:992px){
+    .img-detailFilm{
+        margin: auto;
+    }
+    .detail-tenHTR{
+        display: none;
+    }
+}

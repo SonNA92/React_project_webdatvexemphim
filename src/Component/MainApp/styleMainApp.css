@@ -1,9 +1,9 @@
 /* CSS MAIN APP COMPONENT */
 .mainApp{
-    height: 650px;
+    /* height: 650px; */
     background-image: url(../../asset/image/bg-app.jpg);
     background-size: cover;
-    padding: 80px 0;
+    padding-top: 100px;
 }
 .mainApp .app-content{
     text-align: justify;
@@ -13,10 +13,22 @@
     background-color: orange;
     border: 1px solid orange;
 }
-.mainApp .app-slide{
+.mainApp .app-slide-content{
     width: 80%;
     height: 80%;
+    margin: auto;
     overflow: hidden;
     border: 5px solid black;
     border-radius: 20px;
+}
+/* RESPONSIVE MAINAPP */
+@media (max-width:768px){
+    .mainApp{
+        padding: 0;
+    }  
+}
+@media (min-width: 992px){
+    .mainApp .app-slide{
+        padding-left: 10%;
+    }
 }

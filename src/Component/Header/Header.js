@@ -20,13 +20,17 @@ export default function Header(props) {
     
     return (
     
-        <nav className="navbar navbar-expand-sm bg-white">
+        <nav className="navbar navbar-expand-lg bg-white">
             <NavLink className="navbar-brand logo-top ml-2" to="/">
                 <img height={50} width={50} src="/img/web-logo.png" alt="logo" />
             </NavLink>
-            <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon">
+                    <i className="fa fa-bars"></i>
+                </span>
+            </button>
             <div className="collapse navbar-collapse" id="collapsibleNavId">
-                <ul className="navbar-nav navbar-text mx-auto mt-2 mt-lg-0 ">
+                <ul className="navbar-nav navbar-text mx-lg-auto mt-2 mt-lg-0 ">
                     <li className="nav-item mx-2 active">
                         <NavLink exact activeClassName="text-danger" className="nav-link font-weight-nomal" style={{ color: 'black' }} to="/home">Trang chủ</NavLink>
                     </li>

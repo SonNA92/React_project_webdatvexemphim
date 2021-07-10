@@ -7,7 +7,7 @@
 
 /* css phần blog điện ảnh  */
 #pills-blog-media .card{
-    height: 370px;
+    /* height: 370px; */
     border: none;
     border-radius: 15px;
     background-color: inherit;
@@ -60,4 +60,11 @@
 }
 .animation-overlay h4, .animation-overlay h6{
     color: white;
+}
+
+/* RESPONSIVE MEDIA */
+@media (max-width: 480px){
+    .pills-tab-movie .nav-item{
+        width: 100%;
+    }
 }

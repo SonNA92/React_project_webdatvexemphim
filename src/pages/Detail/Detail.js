@@ -18,15 +18,15 @@ export default function Detail(props) {
 
     // Do API thiếu 1 số trường như thời lượng, đạo diễn, diễn viên,... nên set cứng minh họa
     return (
-        <div className="film-Detail" style={{background: "url(/img/bg-star.jpg) center center",backgroundSize: "cover",}}>
+        <div className="film-Detail" style={{ background: "url(/img/bg-star.jpg) center center", backgroundSize: "cover", }}>
             <div className="container pt-5 pb-4">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-lg-4 col-md-6 col-sm-12">
                         <div className="img-detailFilm">
-                            <img className="w-100 h-100" src={thongTinChiTiet.hinhAnh} alt="movie"/>
+                            <img className="w-100 h-100" src={thongTinChiTiet.hinhAnh} alt="movie" />
                         </div>
                     </div>
-                    <div className="col-6 mt-5">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="row mb-3">
                             <div className="col-12">
                                 <h2 className="text-white mb-0">{thongTinChiTiet.tenPhim}</h2>
@@ -59,7 +59,8 @@ export default function Detail(props) {
                             <div className="col-4">Định dạng</div>
                             <div className="col-8">2D/Digital</div>
                         </div>
-                        <div className="voteDetail row mt-3">
+                        <button type="button" className="btn btn-update btn-warning mt-4" data-toggle="modal" data-target="#trailerMovieDetail" >Xem Trailer</button>
+                        {/* <div className="voteDetail row mt-3">
                             <div className="bd-voteDetail">{thongTinChiTiet.danhGia}/10</div>
                         </div>
                         <div className="voteDetail row mt-2">
@@ -70,11 +71,13 @@ export default function Detail(props) {
                                 <i className="fa fa-star icon-star"></i>
                                 <i className="fa fa-star icon-star"></i>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
-                    <div className="col-2"></div>
+                    <div className="col-lg-2"></div>
+                </div>
+                
                     {/* Phần hiển thị lịch chiếu phim & reviews*/}
-                    <div className="mt-5 mb-3 ml-5">
+                    <div className="mt-5 mb-3">
                         <ul className="nav nav-pills pills-tab-movie mb-5 ml-4" id="pills-tab-detail" role="tablist">
                             <li className="nav-item mr-2" role="presentation">
                                 <a className="nav-link active" id="pills-home-tab-detail" data-toggle="pill" href="#pills-home-detail" role="tab" aria-controls="pills-home-detail" aria-selected="true">
@@ -112,9 +115,16 @@ export default function Detail(props) {
                             </div>
                         </div>
                     </div>
+                
+            </div>
+            <Footer />
+            <div className="modal fade" id="trailerMovieDetail" tabIndex="-1" aria-hidden="true">
+                <div className=" modal-dialog modal-dialog-centered">
+                    <div className="modal-content modalCarousel">
+                        <iframe style={{width:'100%',height:'525px'}} src={thongTinChiTiet.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    </div>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }

@@ -19,9 +19,9 @@ export default function Search(props) {
     // render danh sách phim tìm thấy
     const renderPhimSearch = () => {
         return arrFilm?.map((item, index) => {
-            return <div className="col-6 mb-4" key={index}>
+            return <div className="col-lg-6 col-sm-12 mb-4" key={index}>
                 <div className="row">
-                    <div className="col-6">
+                    <div className=" col-md-7 col-sm-12">
                         <div className="img-animation">
                             <img className="card-img-top w-100 h-100" src={item.hinhAnh} alt="movie" />
                             <NavLink to={`/detail/${item.maPhim}`}>
@@ -29,7 +29,7 @@ export default function Search(props) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className="col-6 pt-5">
+                    <div className=" col-md-4 col-sm-12">
                         <h6 className="">{item.tenPhim}</h6>
                         <p className="">Khởi chiếu: {item.ngayKhoiChieu.slice(0, 10)}</p>
                     </div>

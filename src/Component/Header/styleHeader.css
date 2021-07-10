@@ -23,6 +23,10 @@
     border-radius: 10px;
     border: none;
 }
+.btn-user:hover{
+    background-color: orange;
+    
+}
 .btnLog{
     width: 110px;
     height: 38px;
@@ -56,4 +60,40 @@
     border: none;
     border-left: 1px solid #bdbbbb;
     
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    .searchMovie .btn-search{
+        display: none;
+    }
+}
+
+@media (max-width: 992px){
+    .navbar-collapse{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar-text{
+        justify-content: flex-start;
+    }
+    .form-inline{
+        display: block;
+    }
+    .searchMovie{
+        margin-bottom: 10px;
+    }
+    .user-login{
+        display: block;
+    }
+    .form-inline .btnLog{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 1200px){
+    .logo-top{
+        margin-right: 0;
+    }
 }

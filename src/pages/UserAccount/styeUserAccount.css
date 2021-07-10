@@ -67,3 +67,16 @@
 .chiTietVe::-webkit-scrollbar-track{
     background-color: white;
 }
+
+/* RESPONSIVE PAGE USER ACCOUNT */
+@media (max-width:1199px){
+    .user-account .tab-content .text-input{
+        padding: 8px 0;
+    }
+}
+@media (max-width:779px){
+    .user-account .tab-content{
+        padding: 70px 0;
+    }
+    
+}

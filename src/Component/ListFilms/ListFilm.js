@@ -18,7 +18,7 @@ export default function ListFilm(props) {
     const renderFilmCarousel = (index1, index2) => {
         return arrFilm.slice(index1, index2).map((film, index) => {
             return (
-                <div className="col-3" key={index}>
+                <div className="col-lg-3 col-sm-12 col-md-6 " key={index}>
                     <div className="card img-animation text-white">
                         <div className="list-item">
                             <img className="card-img-top w-100" src={film.hinhAnh} alt="movie" />

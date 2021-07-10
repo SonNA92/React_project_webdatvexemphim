@@ -54,3 +54,10 @@
     border-radius: 50%;
     background-color: rgb(241, 123, 12);
 }
+
+/* RESPONSIVE LIST PHIM */
+@media (max-width:991px){
+    .col-sm-12,.col-md-6{
+        margin-bottom: 20px;
+    }
+}

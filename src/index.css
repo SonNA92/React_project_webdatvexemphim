@@ -1,4 +1,7 @@
 /* CSS GLOBAL */
+html{
+    scroll-behavior: smooth;
+}
 body p{
     margin-bottom: 0;
 }
@@ -77,6 +80,23 @@ body p{
 .nav-pills .nav-link{
     background-color: papayawhip;
     color: black;
+}
+
+/* CSS BACK TO TOP */
+#backToTop a{
+    position: fixed; 
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    color: #2861a4 !important;
+    background-color: #a7a7a7;
+    border-radius: 50%;
+    line-height: 38px;
+    text-align: center;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
 }
 
 

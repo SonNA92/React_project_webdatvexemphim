@@ -31,8 +31,8 @@ export default function Media(props) {
     const renderReviews = () => {
         return arrReviews.map((item, index) => {
             return <div className="row mb-3" key={index}>
-                <div className="col-1"></div>
-                <div className="col-3">
+                <div className="col-lg-1"></div>
+                <div className="col-lg-3 col-md-6 col-sm-12">
                     <div className="img-animation">
                         <img className="w-100 d-block" src={item.src} alt="movie" />
                         <NavLink to={item.path}>
@@ -40,7 +40,7 @@ export default function Media(props) {
                         </NavLink>
                     </div>
                 </div>
-                <div className="col-8">
+                <div className="col-lg-8 col-md-6 col-sm-12">
                     <NavLink to={item.path}>
                         <h6 className="content-title">{item.title}</h6>
                         <p className="content-review">{item.content}</p>
@@ -53,7 +53,7 @@ export default function Media(props) {
     // hàm render khuyễn mãi
     const renderPromotion = (num1,num2) => {
         return arrPromotion.slice(num1,num2).map((item,index)=>{
-            return <div className="col-4" key={index}>
+            return <div className="col-md-4 col-sm-6 col-xs-12" key={index}>
             <div className="img-animation">
                 <NavLink to={item.path}>
                     <img src={item.src} className="d-block w-100" alt="movie" />
@@ -86,7 +86,7 @@ export default function Media(props) {
                     <div className="tab-pane fade show active" id="pills-blog-media" role="tabpanel" aria-labelledby="pills-blog-tab-media">
                         <div className="row">
                             {arrNewsFilm.slice(0, 2).map((item, index) => {
-                                return <div className="col-6" key={index}>
+                                return <div className="col-sm-12 col-md-6" key={index}>
                                     <div className="card">
                                         <div className="img-animation">
                                             <img className="card-img-top w-100" src={item.src} alt="movie" />
@@ -106,7 +106,7 @@ export default function Media(props) {
                         </div>
                         <div className="row mt-4">
                             {arrNewsFilm.slice(2).map((item, index) => {
-                                return <div className="col-4" key={index}>
+                                return <div className=" col-sm-12 col-md-6 col-lg-4" key={index}>
                                     <div className="card">
                                         <div className="img-animation">
                                             <img className="card-img-top w-100" src={item.src} alt="movie" />

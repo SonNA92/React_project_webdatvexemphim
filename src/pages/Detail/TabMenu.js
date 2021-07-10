@@ -14,7 +14,7 @@ export default class TabMenu extends React.Component {
                     <div className="col-4">
                         <img src={htr.logo} width={50} height={50} />
                     </div>
-                    <div className="col-8">
+                    <div className="col-8 detail-tenHTR">
                         <h5 className="text-white">{htr.tenHeThongRap}</h5>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export default class TabMenu extends React.Component {
                                 <div className="row ml-2">
                                 {/* chi hien thi 6 phan tu  */}
                                     {cumRap.lichChieuPhim.slice(0,6).map((lichChieu,index)=>{
-                                        return <div className="col-3" key={index}>
+                                        return <div className="col-lg-3 col-sm-4 col-6 " key={index}>
                                             <NavLink className="btn btn-time btn-warning mb-1" to ={`/checkout/${lichChieu.maLichChieu}`}>{lichChieu.ngayChieuGioChieu.slice(11,16)}
                                             </NavLink>
                                         </div>

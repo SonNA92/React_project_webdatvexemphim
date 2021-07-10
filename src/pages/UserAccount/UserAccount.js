@@ -116,11 +116,10 @@ export default function UserAccount(props) {
             values: thongTinTaiKhoanUpdate
         })
     }, [number])
-    
+
 
     return (
         <div>
-            {/* <Carousel /> */}
             <div className="user-account" style={{ background: 'url(/img/bg-login.jpg) 100% 100%' }}>
                 <div className="container pb-5">
                     <ul className="nav nav-pills pills-tab-movie mb-4" id="pills-tab-user" role="tablist">
@@ -135,7 +134,7 @@ export default function UserAccount(props) {
                         <div className="tab-pane fade show active" id="pills-home-user" role="tabpanel" aria-labelledby="pills-home-tab-user">
                             <form className="form">
                                 <div className="row mb-3">
-                                    <div className="col-6">
+                                    <div className="col-lg-6 col-sm-12">
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Email</p></div>
                                             <div className="col-8">
@@ -159,7 +158,7 @@ export default function UserAccount(props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-lg-6 col-sm-12">
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Tài khoản</p></div>
                                             <div className="col-8">
@@ -205,8 +204,8 @@ export default function UserAccount(props) {
                             <p className="text-center text-danger mt-2"> * Nhấp vào Sửa thông tin để thay đổi và Cập nhật để hoàn tất thay đổi !</p>
                         </div>
                         {/* phần lịch sử đặt vé */}
-                        <div className="tab-pane fade" id="pills-profile-user" role="tabpanel" aria-labelledby="pills-profile-tab-user"> 
-                            <UserHistory thongTinTaiKhoanUpdate = {thongTinTaiKhoanUpdate}/>
+                        <div className="tab-pane fade" id="pills-profile-user" role="tabpanel" aria-labelledby="pills-profile-tab-user">
+                            <UserHistory thongTinTaiKhoanUpdate={thongTinTaiKhoanUpdate} />
                         </div>
                     </div>
                 </div>

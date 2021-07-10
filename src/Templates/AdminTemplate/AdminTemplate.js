@@ -80,6 +80,16 @@ export const AdminTemplate = (props) => {
                         <props.component {...propsRoute} />
                     </Content>
                 </Layout>
+                {/* Back To Top */}
+                <div id="backToTop" title="Về đầu trang" onClick={()=>{  
+                    window.scrollTo({
+                        top:1000,
+                        left:0,
+                        behavior:'smooth'
+                    })
+                }} >
+                    <a href="#"><i className="fa fa-chevron-up"></i></a>
+                </div>
             </Layout>
         }} />
     )
