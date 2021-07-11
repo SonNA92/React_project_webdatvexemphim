@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Route,Redirect,NavLink } from 'react-router-dom';
 // su dung thu vien antdesing de lam giao dien trang 
 import { Layout, Menu } from 'antd';
-import {MenuUnfoldOutlined,MenuFoldOutlined,UserOutlined,VideoCameraOutlined,UploadOutlined,ArrowLeftOutlined
+import {MenuUnfoldOutlined,MenuFoldOutlined,UserOutlined,VideoCameraOutlined,ArrowLeftOutlined
 } from '@ant-design/icons';
 import {useSelector} from 'react-redux';
 import { history } from '../../App';
@@ -56,7 +56,7 @@ export const AdminTemplate = (props) => {
                             onClick: toggle,
                         })}
                         <div className="dropdown">
-                            <a href="#" className="mr-5 text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {userLogin.taiKhoan} <i className="fa fa-angle-down ml-2"></i></a>
+                            <a href="#movie" className="mr-5 text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {userLogin.taiKhoan} <i className="fa fa-angle-down ml-2"></i></a>
                             <div className="dropdown-menu">
                                 <button type="button" className="dropdown-item btn-user-event" onClick={()=>{
                                     history.replace(`/useraccount/${userLogin.taiKhoan}`)
@@ -88,7 +88,7 @@ export const AdminTemplate = (props) => {
                         behavior:'smooth'
                     })
                 }} >
-                    <a href="#"><i className="fa fa-chevron-up"></i></a>
+                    <a href="#movie"><i className="fa fa-chevron-up"></i></a>
                 </div>
             </Layout>
         }} />

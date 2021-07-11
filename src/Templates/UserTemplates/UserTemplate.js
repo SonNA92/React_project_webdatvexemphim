@@ -15,7 +15,7 @@ export default function UserTemplate(props) {
                         behavior:'smooth'
                     })
                 }} >
-                    <a href="#"><i className="fa fa-chevron-up"></i></a>
+                    <a href="#movie"><i className="fa fa-chevron-up"></i></a>
             </div>
           </div>
         );

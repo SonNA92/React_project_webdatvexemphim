@@ -9,7 +9,7 @@ export default function Loading(props) {
 
     return (
         <Fragment>
-            {isLoading ? <div className="loading">Loading...</div> : ''}
+            {isLoading ? <div className="loading">Chờ chút nhé ^ ^...</div> : ''}
         </Fragment>
     )
 }

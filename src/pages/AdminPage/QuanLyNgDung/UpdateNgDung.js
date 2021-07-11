@@ -116,7 +116,6 @@ export default function UpdateNgDung(props) {
         })
     }, [number]);
 
-
     return (
         <form className="container form-admin-page" onSubmit={handleSubmit}>
             <h3 className="mb-4">Chỉnh Sửa Thông Tin</h3>
@@ -181,7 +180,7 @@ export default function UpdateNgDung(props) {
                 }}>Chỉnh sửa</button>
                 <button type="submit" className="btn btn-update btn-success mx-4">Hoàn tất</button>   
             </div>
-            <p className="text-danger text-center">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </p>
+            <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </span></p>
         </form>
     )
 }

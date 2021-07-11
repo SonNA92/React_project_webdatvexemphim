@@ -3,7 +3,7 @@ import { USER_LOGIN } from "../../util/setting";
 
 
 
-
+// lấy user từ Local lên
 let usLogin = {};
 if (localStorage.getItem(USER_LOGIN)){
     usLogin = JSON.parse(localStorage.getItem(USER_LOGIN))

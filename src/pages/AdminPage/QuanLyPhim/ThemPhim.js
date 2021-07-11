@@ -1,6 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik';
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 import { useDispatch } from 'react-redux';
 import { themPhimAction } from '../../../action/FilmAction';
 import "../styleAdmin.css";
@@ -20,6 +20,7 @@ export default function ThemPhim(props) {
             danhGia: 0
         },
         onSubmit:(values)=>{
+            console.log(values)
             // bien doi JSON thanh form data
             let formData = new FormData();
             for (let key in values){

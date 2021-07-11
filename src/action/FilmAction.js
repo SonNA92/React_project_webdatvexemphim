@@ -1,7 +1,4 @@
-import axios from 'axios'
 import { quanLyPhimService } from '../sevices/QuanLyPhimService';
-import { ACCESSTOKEN } from '../util/setting';
-import { displayLoadingActon, hideLoadingActon } from './LoadingAction';
 import { SET_CHI_TIET_CUM_RAP, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL,TIM_KIEM_PHIM } from './types/FilmType';
 import { history } from '../App';
 
@@ -106,7 +103,6 @@ export const xoaPhimAction = (maPhim) => {
         try{
             const result = await quanLyPhimService.xoaPhim(maPhim);
             alert('Xóa phim thành công !');
-
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
@@ -134,7 +130,7 @@ export const layThongTinCumRapTheoHeThong = (maHeThongRap) => {
 export const themLichChieuAction = (formData) =>{
     return async dispatch => {
         try{
-            const result = await quanLyPhimService.themLichChieu(formData);
+            const result = await quanLyPhimService.themLichChieu(formData);  
             alert('Thêm lịch chiếu thành công !');
         }catch(error){
             console.log(error.response?.data);

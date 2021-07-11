@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import Detail from './pages/Detail/Detail';
 import Homes from './pages/Homes/Homes';
 import Login from './pages/Login/Login';
@@ -15,7 +15,6 @@ import AdminPage from './pages/AdminPage/AdminPage';
 import QuanLyPhim from './pages/AdminPage/QuanLyPhim/QuanLyPhim';
 import ThemPhim from './pages/AdminPage/QuanLyPhim/ThemPhim';
 import UserAccount from './pages/UserAccount/UserAccount';
-import UserHistory from './pages/UserAccount/UserHistory/UserHistory';
 import Search from './pages/Search/Search';
 import UpdateFilms from './pages/AdminPage/QuanLyPhim/UpdatePhim';
 import QuanLyNgDung from './pages/AdminPage/QuanLyNgDung/QuanLyNgDung';

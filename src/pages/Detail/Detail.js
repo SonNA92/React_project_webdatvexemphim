@@ -60,18 +60,6 @@ export default function Detail(props) {
                             <div className="col-8">2D/Digital</div>
                         </div>
                         <button type="button" className="btn btn-update btn-warning mt-4" data-toggle="modal" data-target="#trailerMovieDetail" >Xem Trailer</button>
-                        {/* <div className="voteDetail row mt-3">
-                            <div className="bd-voteDetail">{thongTinChiTiet.danhGia}/10</div>
-                        </div>
-                        <div className="voteDetail row mt-2">
-                            <div>
-                                <i className="fa fa-star icon-star"></i>
-                                <i className="fa fa-star icon-star"></i>
-                                <i className="fa fa-star icon-star"></i>
-                                <i className="fa fa-star icon-star"></i>
-                                <i className="fa fa-star icon-star"></i>
-                            </div>
-                        </div> */}
                     </div>
                     <div className="col-lg-2"></div>
                 </div>

@@ -26,10 +26,10 @@ export default function Footer() {
                     <div className="col-lg-3 col-sm-6 mb-2">
                         <h6>Giới thiệu</h6>
                         <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Thỏa thuận sử dụng</a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="#">Nhận diện thương hiệu</a></li>
+                            <li><a href="#footer">FAQ</a></li>
+                            <li><a href="#footer">Thỏa thuận sử dụng</a></li>
+                            <li><a href="#footer">Chính sách bảo mật</a></li>
+                            <li><a href="#footer">Nhận diện thương hiệu</a></li>
                         </ul>
                     </div>
                     <div className="col-lg-4 col-sm-6 mb-2">
@@ -93,7 +93,7 @@ export default function Footer() {
                         <p>Địa chỉ: 22 Đường số 30, Phường 2, Quận Tân Bình, Tp. Hồ Chí Minh, Việt Nam</p>
                         <p>Giấy chứng nhận đăng ký kinh doanh số: 0123456789</p>
                         <p>Số Điện Thoại (Hotline): 0888 555 114</p>
-                        <a href="#">Email: support@viecinema.vn</a>
+                        <a href="#footer">Email: support@viecinema.vn</a>
                     </div>
                 </div>
             </div>

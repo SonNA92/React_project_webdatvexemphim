@@ -22,13 +22,13 @@
     border-radius: 20px;
 }
 /* RESPONSIVE MAINAPP */
-@media (max-width:768px){
-    .mainApp{
-        padding: 0;
-    }  
-}
-@media (min-width: 992px){
+@media (min-width: 991px){
     .mainApp .app-slide{
         padding-left: 10%;
     }
+}
+@media (max-width:767px){
+    .mainApp{
+        padding: 0;
+    }  
 }

@@ -8,12 +8,11 @@ import "./styeUserAccount.css";
 
 export default function UserAccount(props) {
 
-
-    const [number, setNumber] = useState(1);
     const dispatch = useDispatch();
     const { thongTinTaiKhoan, userLogin } = useSelector(state => state.UserReducer);
     delete thongTinTaiKhoan.loaiNguoiDung; // do API bị lỗi trường này nên bỏ ra
     const thongTinTaiKhoanUpdate = { ...thongTinTaiKhoan, maLoaiNguoiDung: userLogin.maLoaiNguoiDung }; // thêm vào trường MLND lấy giá trị từ userLogin để update
+    const [number, setNumber] = useState(1);
     const [state, setState] = useState({
         values: {
             email: userLogin.email,
@@ -22,18 +21,18 @@ export default function UserAccount(props) {
             taiKhoan: userLogin.taiKhoan,
             matKhau: '******',
             maLoaiNguoiDung: userLogin.maLoaiNguoiDung
+
         },
         errors: {
             email: '',
             hoTen: '',
             soDT: '',
             matKhau: '',
-            maLoaiNguoiDung: ''
         }
 
     });
     useEffect(() => {
-        dispatch(layThongTinAction(userLogin.taiKhoan));
+        dispatch(layThongTinAction(props.match.params.id));
     }, [])
 
     // hàm onChange
@@ -96,7 +95,6 @@ export default function UserAccount(props) {
         // Form hop le khi tat ca input khong duoc de trong va hop le
         let { values, errors } = state;
         let valid = true;
-        console.log(values)
         for (let keyName in errors) {
             if (errors[keyName] !== '') {
                 // co 1 truong hien thi bi loi
@@ -116,7 +114,6 @@ export default function UserAccount(props) {
             values: thongTinTaiKhoanUpdate
         })
     }, [number])
-
 
     return (
         <div>
@@ -138,7 +135,7 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Email</p></div>
                                             <div className="col-8">
-                                                <input typeemail="email" id="changeInput1" className="form-control" name="email" value={state.values.email} disabled="true" onChange={handleChangeInput} />
+                                                <input typeemail="email" id="changeInput1" className="form-control" name="email" value={state.values.email} onChange={handleChangeInput} disabled />
                                                 <p className="text text-warning text-danger">{state.errors?.email}</p>
                                             </div>
 
@@ -146,14 +143,14 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Họ tên</p></div>
                                             <div className="col-8">
-                                                <input typehoten="hoTen" id="changeInput2" className="form-control" name="hoTen" disabled="true" value={state.values.hoTen} onChange={handleChangeInput} />
+                                                <input typehoten="hoTen" id="changeInput2" className="form-control" name="hoTen" value={state.values.hoTen} onChange={handleChangeInput} disabled />
                                                 <p className="text text-warning text-danger">{state.errors?.hoTen}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Số điện thoại</p></div>
                                             <div className="col-8">
-                                                <input typesodt="soDT" id="changeInput3" className="form-control" name="soDT" disabled="true" value={state.values.soDT} onChange={handleChangeInput} />
+                                                <input typesodt="soDT" id="changeInput3" className="form-control" name="soDT" value={state.values.soDT} onChange={handleChangeInput} disabled />
                                                 <p className="text text-warning text-danger">{state.errors?.soDT}</p>
                                             </div>
                                         </div>
@@ -168,14 +165,14 @@ export default function UserAccount(props) {
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Mật khẩu</p></div>
                                             <div className="col-8">
-                                                <input typematkhau="matKhau" id="changeInput4" className="form-control" name="matKhau" disabled="true" value={state.values.matKhau} onChange={handleChangeInput} />
+                                                <input typematkhau="matKhau" id="changeInput4" className="form-control" name="matKhau" value={state.values.matKhau} onChange={handleChangeInput} disabled />
                                                 <p className="text text-warning text-danger">{state.errors?.matKhau}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-4"><p className="text-input">Loại Tài Khoản</p></div>
                                             <div className="col-8">
-                                                <input className="form-control" name="loaiNguoiDung" value={(state.values.maLoaiNguoiDung === 'KhachHang') ? "Khách Hàng" : "Quản Trị"} disabled onChange={handleChangeInput} />
+                                                <input className="form-control" name="maLoaiNguoiDung" value={(state.values.maLoaiNguoiDung === 'KhachHang') ? "Khách Hàng" : "Quản Trị"} disabled onChange={handleChangeInput} />
                                             </div>
                                         </div>
                                     </div>
@@ -185,23 +182,22 @@ export default function UserAccount(props) {
                                 <p id="text-notice" className="text-danger"></p>
                             </div>
                             <div className="row justify-content-center">
-                                <div>
-                                    <button type="button" className="btn-update btn btn-success mr-3" onClick={() => {
-                                        document.getElementById("text-notice").innerHTML = "- Tài khoản và Loại tài khoản không thể thay đổi ! -"
-                                        document.getElementById("changeInput1").removeAttribute("disabled");
-                                        document.getElementById("changeInput2").removeAttribute("disabled");
-                                        document.getElementById("changeInput3").removeAttribute("disabled");
-                                        document.getElementById("changeInput4").removeAttribute("disabled");
-                                        setNumber({
-                                            number: number + 1
-                                        })
-                                    }}>Sửa thông tin</button>
-                                    <button type="button" className="btn-update btn btn-success ml-3" onClick={() => {
-                                        { handleSubmit() }
-                                    }}>Cập nhật</button>
-                                </div>
+                                <button type="button" className="btn-update btn btn-success mr-3" onClick={() => {
+                                    setNumber({
+                                        number: number + 1
+                                    });
+                                    document.getElementById("text-notice").innerHTML = "- Tài khoản và Loại tài khoản không thể thay đổi ! -";
+                                    document.getElementById("changeInput1").removeAttribute("disabled");
+                                    document.getElementById("changeInput2").removeAttribute("disabled");
+                                    document.getElementById("changeInput3").removeAttribute("disabled");
+                                    document.getElementById("changeInput4").removeAttribute("disabled");
+
+                                }}>Sửa thông tin</button>
+                                <button type="button" className="btn-update btn btn-success ml-3" onClick={() => {
+                                    { handleSubmit() }
+                                }}>Cập nhật</button>
                             </div>
-                            <p className="text-center text-danger mt-2"> * Nhấp vào Sửa thông tin để thay đổi và Cập nhật để hoàn tất thay đổi !</p>
+                            <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Sửa thông tin để thay đổi và Cập nhật để hoàn tất thay đổi ! </span></p>
                         </div>
                         {/* phần lịch sử đặt vé */}
                         <div className="tab-pane fade" id="pills-profile-user" role="tabpanel" aria-labelledby="pills-profile-tab-user">
@@ -214,4 +210,5 @@ export default function UserAccount(props) {
         </div>
     )
 }
+
 

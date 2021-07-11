@@ -1,6 +1,5 @@
-import axios from 'axios';
 import {history} from '../App';
-import { ACCESSTOKEN, USER_LOGIN, DOMAIN } from '../util/setting';
+import { ACCESSTOKEN, USER_LOGIN } from '../util/setting';
 import { layChiTietPhongVe } from './FilmAction';
 import { displayLoadingActon, hideLoadingActon } from './LoadingAction';
 import { DANG_NHAP, SET_USER, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER, XOA_DANH_SACH_GHE_DANG_DAT } from './types/FilmType';
@@ -28,11 +27,7 @@ export const layDanhSachNgDungAction = () =>{
 export const dangKyAction = (thongTinNguoiDung) => {
     return async dispatch => {
         try {
-            const result = await axios({
-                url:'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy',
-                method:'POST',
-                data:thongTinNguoiDung
-            });
+            const result = await quanLyNgDungService.dangKyTaiKhoan(thongTinNguoiDung);
             history.push('/login'); // chuyen ve trang chu
             alert('Đăng kí tài khoản thành công ! Xin mời đăng nhập !');
 
@@ -47,11 +42,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
 
     return async dispatch => {
         try {
-            const result = await axios({
-                url:`${DOMAIN}/api/QuanLyNguoiDung/DangNhap`,
-                method:'POST',
-                data:thongTinDangNhap
-            })
+            const result = await quanLyNgDungService.dangNhapTaiKhoan(thongTinDangNhap);
             // dua len Reducer
             dispatch({
                 type:DANG_NHAP,
@@ -75,16 +66,7 @@ export const datVeAction = (thongTinDatVe) =>{
         // hien thi loading khi bam nut dat ve
         dispatch(displayLoadingActon);
         try{
-            const result = await axios({
-                url:`${DOMAIN}/api/QuanLyDatVe/DatVe`,
-                method:'POST',
-                data:thongTinDatVe,
-
-                // phan nay de API xac nhan da dang nhap
-                headers:{
-                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
-                }
-            });
+            const result = await quanLyNgDungService.datVePhim(thongTinDatVe);
             // goi Action xoa ghe
             await dispatch({
                 type:XOA_DANH_SACH_GHE_DANG_DAT
@@ -104,43 +86,27 @@ export const datVeAction = (thongTinDatVe) =>{
 
 export const layThongTinAction = (taiKhoan)=>{
     return async dispatch => {
+        dispatch(displayLoadingActon);
         try{
-            const result = await axios({
-                url:`${DOMAIN}/api/QuanLyNguoiDung/ThongTinTaiKhoan`,
-                method:'POST',
-                data:{taiKhoan:taiKhoan},
-
-                // phan nay de API xac nhan da dang nhap
-                headers:{
-                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
-                }
-            });
+            const result = await quanLyNgDungService.layThongTinTaiKhoan({taiKhoan:taiKhoan});
             // gửi thông tin lên redux
-            dispatch({
+            await dispatch({
                 type:THONG_TIN_TAI_KHOAN,
                 thongTinTaiKhoan:result.data
-            })
+            });
+            dispatch(hideLoadingActon);
 
         }catch (err){
-            
-            alert(err.response?.data);
-        }
+            console.log(err.response.data)
+            alert("Lỗi: input không hợp lệ");
+        }   
     }
 }
 
 export const capNhatThongTinTaiKhoan = (thongTinTaiKhoan) => {
     return async dispatch => {
         try{
-            const result = await axios({
-                url:`${DOMAIN}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
-                method:'PUT',
-                data:thongTinTaiKhoan,
-
-                // phan nay de API xac nhan da dang nhap
-                headers:{
-                    'Authorization':`Bearer ${localStorage.getItem(ACCESSTOKEN)}`
-                }
-            });
+            const result = await quanLyNgDungService.capNhatThongTinTaiKhoan(thongTinTaiKhoan);
             // load lai trang
             dispatch(layThongTinAction(thongTinTaiKhoan.taiKhoan));
             alert('Cập nhật thông tin thành công!');

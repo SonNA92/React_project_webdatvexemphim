@@ -6,6 +6,7 @@
     width: 100%;
     border: 5px solid orange;
 }
+/* RESPNSIVE MODAL */
 @media (min-width: 576px){
 .modal-dialog{
     max-width: 800px;

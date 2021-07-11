@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import "../styleAdmin.css";
-import { useFormik } from 'formik';
-import { DatePicker, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { capNhatPhimAction, getFilmDetailAction } from '../../../action/FilmAction';
 import { useState } from 'react';
@@ -22,7 +20,15 @@ export default function UpdateFilms(props) {
             maNhom:'GP01',
             ngayKhoiChieu: '',
             danhGia:10
-        }           
+        },
+        errors:{
+            tenPhim: '',
+            biDanh: '',
+            trailer: '',
+            moTa: '',
+            hinhAnh: '',
+            ngayKhoiChieu: '' 
+        }
         
     });
     const [number, setNumber] = useState(1);
@@ -32,13 +38,18 @@ export default function UpdateFilms(props) {
         const action = props.match.params.id;
         dispatch(getFilmDetailAction(action));
 
-    }, [])
+    }, [])  
 
     const handelChange = (e) => {
         
         let {name,value} = e.target;
         let newValues = {...state.values};
-        newValues = {...newValues,[name]:value}
+        newValues = {...newValues,[name]:value};
+        let newErrors = { ...state.errors };
+        let errorMessage = '';
+        if (newValues[name].trim() === '') {
+            errorMessage = name + ' không được bỏ trống'
+        }
        
         if (name ==="hinhAnh"){
             newValues[name] = e.target.files[0];
@@ -47,21 +58,34 @@ export default function UpdateFilms(props) {
             newValues[name] = e.target.value;
         }
         
+        newErrors[name] = errorMessage;
         setState({
             ...state,
-            values:newValues
+            values:newValues,
+            errors:newErrors
         })
 
     }
     
     const handelSubmit = (e) => {
         e.preventDefault();
+        let valid = true;
+        for (let keyName in state.errors) {
+            if (state.errors[keyName] !== '') {
+                // co 1 truong hien thi bi loi
+                valid = false;
+            }
+        }
+        if (!valid) {
+            alert(' Dữ liệu không hợp lệ');
+            return
+        }
         let formData = new FormData();
         for (let key in state.values){
-            console.log(state.values.hinhAnh)
             formData.append(key,state.values[key]);
         }
         dispatch(capNhatPhimAction(formData));
+        
     }
     // gán giá trị state khi click vào thay đổi
     useEffect(() => {
@@ -83,14 +107,17 @@ export default function UpdateFilms(props) {
                     <div className="form-group">
                         <p>Tên phim</p>
                         <input className="form-control" name="tenPhim" value={state.values.tenPhim} onChange={handelChange}/>
+                        <p className="text text-warning text-danger">{state.errors?.tenPhim}</p>
                     </div>
                     <div className="form-group">
                         <p>Bí danh</p>
                         <input className="form-control" name="biDanh" value={state.values.biDanh} onChange={handelChange} />
+                        <p className="text text-warning text-danger">{state.errors?.biDanh}</p>
                     </div>
                     <div className="form-group">
                         <p>Mô tả</p>
                         <input className="form-control" name="moTa" value={state.values.moTa} onChange={handelChange} />
+                        <p className="text text-warning text-danger">{state.errors?.moTa}</p>
                     </div>
                 </div>
                 <div className="col-6">
@@ -98,15 +125,18 @@ export default function UpdateFilms(props) {
                         <p>Ngày khởi chiếu</p>
                         <input type="date" className="form-control" name="ngayKhoiChieu" onChange={handelChange} />
                         <p className="text-warning">Ngày khởi chiếu hiện tại: {thongTinChiTiet.ngayKhoiChieu}</p>
+                        <p className="text text-warning text-danger">{state.errors?.ngayKhoiChieu}</p>
                     </div>
                     <div className="form-group">
                         <p>Trailer</p>
                         <input className="form-control" name="trailer" value={state.values.trailer} onChange={handelChange} />
+                        <p className="text text-warning text-danger">{state.errors?.trailer}</p>
                     </div>
                     <div className="form-group">
                         <p>Hình ảnh</p>
                         <input className="form-control" name="hinhAnh" type="file" style={{ height: '45px' }} onChange={handelChange} />
                         <p className="text-warning">Hình ảnh hiện tại: {thongTinChiTiet.hinhAnh}</p>
+                        <p className="text text-warning text-danger">{state.errors?.hinhAnh}</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +151,7 @@ export default function UpdateFilms(props) {
                 }}>Chỉnh sửa</button>
                 <button type="submit" className="btn btn-update btn-success mx-4">Hoàn tất</button>
             </div>
-            <p className="text-danger text-center">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </p>
+            <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </span></p>
 
         </form>
     )

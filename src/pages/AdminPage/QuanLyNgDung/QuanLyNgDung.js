@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
-import { Table, Tag, Space } from 'antd';
+import { Table, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachNgDungAction, timKiemNguoiDung, timKiemNguoiDungAction, xoaNguoiDungAction } from '../../../action/UserAction';
+import { layDanhSachNgDungAction, timKiemNguoiDungAction, xoaNguoiDungAction } from '../../../action/UserAction';
 
 export default function QuanLyNgDung(props) {
 
@@ -13,12 +13,6 @@ export default function QuanLyNgDung(props) {
     },[])
 
     const columns = [
-        // {
-        //   title: 'STT',
-       
-        
-        //   render: (text,index) => <span>{index}</span>,
-        // },
         {
           title: 'Tài khoản',
           dataIndex: 'taiKhoan',

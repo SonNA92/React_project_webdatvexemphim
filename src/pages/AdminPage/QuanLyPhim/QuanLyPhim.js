@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
-import { Table, Tag, Space } from 'antd';
+import { Table, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction, timKiemPhimAction, xoaPhimAction } from '../../../action/FilmAction';
 

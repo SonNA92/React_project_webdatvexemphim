@@ -13,7 +13,7 @@ export default function ListFilm(props) {
         // lấy danh sách phim về
         const action = getApiFilmAction("GP01");
         dispatch(action);
-    }, []);
+    },[]);
     // Hàm render phim hiển thị ở trên carousel
     const renderFilmCarousel = (index1, index2) => {
         return arrFilm.slice(index1, index2).map((film, index) => {

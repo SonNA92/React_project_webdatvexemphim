@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {useFormik} from 'formik';
-import { DatePicker, Space, Tabs } from 'antd';
+import { DatePicker } from 'antd';
 import {layThongTinCumRapTheoHeThong, themLichChieuAction} from "../../../action/FilmAction";
 
 

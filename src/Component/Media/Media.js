@@ -53,7 +53,7 @@ export default function Media(props) {
     // hàm render khuyễn mãi
     const renderPromotion = (num1,num2) => {
         return arrPromotion.slice(num1,num2).map((item,index)=>{
-            return <div className="col-md-4 col-sm-6 col-xs-12" key={index}>
+            return <div className="col-lg-4 col-sm-6 col-xs-12" key={index}>
             <div className="img-animation">
                 <NavLink to={item.path}>
                     <img src={item.src} className="d-block w-100" alt="movie" />

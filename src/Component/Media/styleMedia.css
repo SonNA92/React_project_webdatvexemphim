@@ -63,7 +63,7 @@
 }
 
 /* RESPONSIVE MEDIA */
-@media (max-width: 480px){
+@media (max-width: 479px){
     .pills-tab-movie .nav-item{
         width: 100%;
     }

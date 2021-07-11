@@ -1,4 +1,4 @@
-import { Tabs, Radio, Space } from 'antd';
+import { Tabs } from 'antd';
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import "./styleDetail.css";
@@ -12,7 +12,7 @@ export default class TabMenu extends React.Component {
             return <TabPane tab={<div>
                 <div className="row align-items-center">
                     <div className="col-4">
-                        <img src={htr.logo} width={50} height={50} />
+                        <img src={htr.logo} width={50} height={50} alt="movie" />
                     </div>
                     <div className="col-8 detail-tenHTR">
                         <h5 className="text-white">{htr.tenHeThongRap}</h5>

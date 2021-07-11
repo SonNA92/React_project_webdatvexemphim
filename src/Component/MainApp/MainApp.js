@@ -17,7 +17,7 @@ export default function MainApp(props) {
                                 <h4 className="text-white mb-1">App miễn phí - Tải về ngay !</h4>
                             </NavLink>
                         </div>
-                        <h6 className="text-white mt-4">VIE có 2 phiên bản dành cho <a className="text-danger" href="#">iOS</a> và <a className="text-danger" href="#">Android</a></h6>
+                        <h6 className="text-white mt-4">VIE có 2 phiên bản dành cho <a className="text-danger" href="#mainApp">iOS</a> và <a className="text-danger" href="#mainApp">Android</a></h6>
 
                     </div>
                     {/* <div className="col-lg-1 col-md-0"></div> */}
