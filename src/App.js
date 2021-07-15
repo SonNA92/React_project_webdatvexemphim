@@ -21,6 +21,7 @@ import QuanLyNgDung from './pages/AdminPage/QuanLyNgDung/QuanLyNgDung';
 import ThemNgDung from './pages/AdminPage/QuanLyNgDung/ThemNgDung';
 import UpdateNgDung from './pages/AdminPage/QuanLyNgDung/UpdateNgDung';
 import TaoLichChieuPhim from './pages/AdminPage/QuanLyPhim/TaoLichChieuPhim';
+import News from './pages/News/News';
 
 
 export const history = createBrowserHistory();
@@ -38,6 +39,7 @@ function App() {
         <UserTemplate exact path="/register" component={Register} />
         <HomeTemplate exact path="/checkout/:id" component={Checkout}/>
         <HomeTemplate exact path="/useraccount/:id" component={UserAccount}/>
+        <HomeTemplate exact path="/news/:id" component={News}/>
         <AdminTemplate exact path="/admin" component={AdminPage}/>
         <AdminTemplate exact path="/admin/films" component={QuanLyPhim}/>
         <AdminTemplate exact path="/admin/addfilm" component={ThemPhim}/>

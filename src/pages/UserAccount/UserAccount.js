@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { capNhatThongTinTaiKhoan, layThongTinAction } from '../../action/UserAction';
 import Footer from '../../Component/Footer/Footer';
@@ -10,9 +10,8 @@ export default function UserAccount(props) {
 
     const dispatch = useDispatch();
     const { thongTinTaiKhoan, userLogin } = useSelector(state => state.UserReducer);
-    delete thongTinTaiKhoan.loaiNguoiDung; // do API bị lỗi trường này nên bỏ ra
-    const thongTinTaiKhoanUpdate = { ...thongTinTaiKhoan, maLoaiNguoiDung: userLogin.maLoaiNguoiDung }; // thêm vào trường MLND lấy giá trị từ userLogin để update
     const [number, setNumber] = useState(1);
+    const [click,setClick] = useState(1);
     const [state, setState] = useState({
         values: {
             email: userLogin.email,
@@ -31,9 +30,20 @@ export default function UserAccount(props) {
         }
 
     });
+    delete thongTinTaiKhoan.loaiNguoiDung; // do API bị lỗi trường này nên bỏ ra
+    const thongTinTaiKhoanUpdate = { ...thongTinTaiKhoan, maLoaiNguoiDung: userLogin.maLoaiNguoiDung }; // thêm vào trường MLND lấy giá trị từ userLogin để update
+    // dùng useCallback để chỉ render lại trang useHistory khi người dùng click vào xem
+    const callBackThongTinTaiKhoanUpdate = useCallback(thongTinTaiKhoanUpdate,[click]);
+    
     useEffect(() => {
         dispatch(layThongTinAction(props.match.params.id));
     }, [])
+
+    useEffect(() => {
+        setState({
+            values: thongTinTaiKhoanUpdate
+        })
+    }, [number])
 
     // hàm onChange
     const handleChangeInput = (event) => {
@@ -109,14 +119,10 @@ export default function UserAccount(props) {
         // Dua du lieu len Redux
         dispatch(capNhatThongTinTaiKhoan(values));
     }
-    useEffect(() => {
-        setState({
-            values: thongTinTaiKhoanUpdate
-        })
-    }, [number])
+    
 
     return (
-        <div>
+        <div className="user-account-page">
             <div className="user-account" style={{ background: 'url(/img/bg-login.jpg) 100% 100%' }}>
                 <div className="container pb-5">
                     <ul className="nav nav-pills pills-tab-movie mb-4" id="pills-tab-user" role="tablist">
@@ -124,7 +130,9 @@ export default function UserAccount(props) {
                             <a className="nav-link active" id="pills-home-tab-user" data-toggle="pill" href="#pills-home-user" role="tab" aria-controls="pills-home-user" aria-selected="true">Thông tin cá nhân</a>
                         </li>
                         <li className="nav-item" role="presentation">
-                            <a className="nav-link" id="pills-profile-tab-user" data-toggle="pill" href="#pills-profile-user" role="tab" aria-controls="pills-profile-user" aria-selected="false">Lịch sử đặt vé</a>
+                            <a className="nav-link" id="pills-profile-tab-user" data-toggle="pill" href="#pills-profile-user" role="tab" aria-controls="pills-profile-user" aria-selected="false" onClick={()=>{
+                                setClick(click + 1);
+                            }}>Lịch sử đặt vé</a>
                         </li>
                     </ul>
                     <div className="tab-content" id="pills-tabContent-user">
@@ -183,9 +191,7 @@ export default function UserAccount(props) {
                             </div>
                             <div className="row justify-content-center">
                                 <button type="button" className="btn-update btn btn-success mr-3" onClick={() => {
-                                    setNumber({
-                                        number: number + 1
-                                    });
+                                    setNumber(number + 1);
                                     document.getElementById("text-notice").innerHTML = "- Tài khoản và Loại tài khoản không thể thay đổi ! -";
                                     document.getElementById("changeInput1").removeAttribute("disabled");
                                     document.getElementById("changeInput2").removeAttribute("disabled");
@@ -195,13 +201,13 @@ export default function UserAccount(props) {
                                 }}>Sửa thông tin</button>
                                 <button type="button" className="btn-update btn btn-success ml-3" onClick={() => {
                                     { handleSubmit() }
-                                }}>Cập nhật</button>
+                                }}>Hoàn tất</button>
                             </div>
-                            <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Sửa thông tin để thay đổi và Cập nhật để hoàn tất thay đổi ! </span></p>
+                            <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Sửa thông tin để thay đổi và Hoàn tất để cập nhật thay đổi ! </span></p>
                         </div>
                         {/* phần lịch sử đặt vé */}
                         <div className="tab-pane fade" id="pills-profile-user" role="tabpanel" aria-labelledby="pills-profile-tab-user">
-                            <UserHistory thongTinTaiKhoanUpdate={thongTinTaiKhoanUpdate} />
+                            <UserHistory thongTinTaiKhoanUpdate={callBackThongTinTaiKhoanUpdate} />
                         </div>
                     </div>
                 </div>

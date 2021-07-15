@@ -1,0 +1,21 @@
+/* CSS NEWS PAGE */
+.news-movie{
+    padding-top: 76px;
+    text-align: justify;
+}
+.news-movie .container{
+    width: 60%;
+}
+.news-movie h5{
+    padding-top: 15px;
+}
+.news-movie .new-movie-img{
+    margin: 20px auto;
+    width: 70%;
+}
+
+@media (max-width: 767px){
+    .news-movie .container{
+        width: 80%;
+    } 
+}

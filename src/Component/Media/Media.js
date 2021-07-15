@@ -6,11 +6,11 @@ import "./styleMedia.css";
 export default function Media(props) {
 
     let arrNewsFilm = [
-        { src: '/img/news-lat-mat.png', title: 'Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất', content: 'Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ.', path: '/' },
-        { src: '/img/news-mortal-kombat.png', title: '[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI TIẾNG ĐƯỢC CHUYỂN THỂ TỪ CÁC TỰA...', content: 'Bên cạnh những kịch bản gốc mới mẻ và đầy bất ngờ, Hollywood cũng không thiếu những tác phẩm đình đám được chuyển thể từ tiểu thuyết, phim hoạt hình, hay thậm chí là cả trò chơi điện tử.', path: '/' },
-        { src: '/img/news-woman.png', title: 'PROMISING YOUNG WOMAN | Bông hồng nước Anh Carey Mulligan và màn trả thù', content: 'Đề cử giải Oscar danh giá vừa gọi tên Carey Mulligan ở hạng mục nữ chính xuất sắc nhất cho vai diễn "đẫm máu" nhất sự nghiệp của cô trong phim', path: '/' },
-        { src: '/img/news-ban-tay-diet-quy.png', title: 'VỪA ĐẸP LẠI VỪA TÀI NĂNG, DÀN SAO NAM CỦA PHIM “BÀN TAY DIỆT QUỶ”...', content: 'Quy tụ 3 nam tài tử vừa điển trai, vừa được đánh giá cao về năng lực diễn xuất là Park Seo Joon, Woo Do Hwan và Choi Woo Sik, tác phẩm kinh dị – hành động...', path: '/' },
-        { src: '/img/news-vo3.jpg', title: "'Vợ ba' và câu chuyện của những người đàn bà trong 'tổ kén'", content: 'Dựa trên những câu chuyện có thật về thân phận người phụ nữ Việt Nam trong xã hội xưa, phim cũng đề cập đến các vấn đề của xã hội lúc đó như hôn nhân sắp đặt, tục đa thê, trọng nam khinh nữ.', path: '/' }
+        { src: '/img/news-lat-mat.png', title: 'Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất', content: 'Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ.'},
+        { src: '/img/news-mortal-kombat.png', title: '[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI TIẾNG ĐƯỢC CHUYỂN THỂ TỪ CÁC TỰA...', content: 'Bên cạnh những kịch bản gốc mới mẻ và đầy bất ngờ, Hollywood cũng không thiếu những tác phẩm đình đám được chuyển thể từ tiểu thuyết, phim hoạt hình, hay thậm chí là cả trò chơi điện tử.' },
+        { src: '/img/news-woman.png', title: 'PROMISING YOUNG WOMAN | Bông hồng nước Anh Carey Mulligan và màn trả thù', content: 'Đề cử giải Oscar danh giá vừa gọi tên Carey Mulligan ở hạng mục nữ chính xuất sắc nhất cho vai diễn "đẫm máu" nhất sự nghiệp của cô trong phim'},
+        { src: '/img/news-ban-tay-diet-quy.png', title: 'VỪA ĐẸP LẠI VỪA TÀI NĂNG, DÀN SAO NAM CỦA PHIM “BÀN TAY DIỆT QUỶ”...', content: 'Quy tụ 3 nam tài tử vừa điển trai, vừa được đánh giá cao về năng lực diễn xuất là Park Seo Joon, Woo Do Hwan và Choi Woo Sik, tác phẩm kinh dị – hành động...' },
+        { src: '/img/news-vo3.jpg', title: "'Vợ ba' và câu chuyện của những người đàn bà trong 'tổ kén'", content: 'Dựa trên những câu chuyện có thật về thân phận người phụ nữ Việt Nam trong xã hội xưa, phim cũng đề cập đến các vấn đề của xã hội lúc đó như hôn nhân sắp đặt, tục đa thê, trọng nam khinh nữ.' }
     ]
     let arrReviews = [
         { src: '/img/review-1.jpg', title: '[Review] Thiên Thần Hộ Mệnh: Victor Vũ Và Nỗ Lực Trẻ Hóa "Vũ Trụ Bùa Ngải"', content: 'Thiên Thần Hộ Mệnh phức tạp, nhiều twist và rõ nhất là trẻ hơn!', path: '/home' },
@@ -90,12 +90,12 @@ export default function Media(props) {
                                     <div className="card">
                                         <div className="img-animation">
                                             <img className="card-img-top w-100" src={item.src} alt="movie" />
-                                            <NavLink to={item.path}>
+                                            <NavLink to={`/news/${item.title}`}>
                                                 <div className="animation-overlay"></div>
                                             </NavLink>
                                         </div>
                                         <div className="card-body">
-                                            <NavLink to={item.path}>
+                                            <NavLink to={`/news/${item.title}`}>
                                                 <h5 className="card-title">{item.title}</h5>
                                             </NavLink>
                                             <p className="card-text">{item.content}</p>
@@ -110,12 +110,12 @@ export default function Media(props) {
                                     <div className="card">
                                         <div className="img-animation">
                                             <img className="card-img-top w-100" src={item.src} alt="movie" />
-                                            <NavLink to={item.path}>
+                                            <NavLink to={`/news/${item.title}`}>
                                                 <div className="animation-overlay"></div>
                                             </NavLink>
                                         </div>
                                         <div className="card-body">
-                                            <NavLink to={item.path}>
+                                            <NavLink to={`/news/${item.title}`}>
                                                 <h5 className="card-title">{item.title}</h5>
                                             </NavLink>
                                             <p className="card-text">{item.content}</p>

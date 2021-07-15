@@ -1,12 +1,5 @@
 /* CSS FORM LOGIN/REGISTER */
-.formLog{
-    height: 600px;
-    color: white;
-    background-color: rgba(20,50,93,.9);
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 20px;
-}
+/* formLog css sử dụng chung với Login */
 /* CSS IMG */
 .imgLogo{
     width: 200px;

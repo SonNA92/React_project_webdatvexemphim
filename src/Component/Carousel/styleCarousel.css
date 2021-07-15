@@ -1,14 +1,14 @@
 /* CSS CAROUSEL COMPONENT */
+.carouselMovie{
+    padding-top: 76px;
+}
 #carouselMovieControls{
-    height: 600px;
+    /* height: 600px; */
     overflow: hidden;
 }
 #carouselMovieControls .carousel-item{
     height: 600px;
-}
-.carousel-item .img-carousel{
     display: block;
-    width: 100%;
 }
 .carousel-caption{
     top: 40%;
@@ -23,4 +23,23 @@
 }
 .carousel-item:hover .carousel-caption{
     display: block;
+}
+.ant-carousel .slick-dots li button{
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+}
+.ant-carousel .slick-dots li.slick-active button{
+    background-color: orange !important;
+}
+/* Modal Carousel */
+.ant-modal{
+    width: 800px !important;
+}
+.ant-modal-body{
+    padding: 0 !important;
+    border: 3px solid orange;
+}
+.ant-modal-footer{
+    display: none;
 }

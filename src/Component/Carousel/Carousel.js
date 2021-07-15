@@ -1,43 +1,65 @@
-import React from "react";
-import "./styleCarousel.css";
+import React, { useState } from 'react';
+import { Modal, Carousel } from 'antd';
+import './styleCarousel.css';
 
-export default function Carousel() {
+export default function CarouselMovie(props) {
+
+    const [trailerCarousel, setTrailerCarousel] = useState({});
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const arrCarousel = [
+        { id: 1, img: '/img/lat-mat-48h.png', trailer: 'https://www.youtube.com/embed/kBY2k3G6LsM' },
+        { id: 2, img: '/img/ban-tay-diet-quy.png', trailer: 'https://www.youtube.com/embed/phhQ6pYYk5w' },
+        { id: 3, img: '/img/trang-ti.jpg', trailer: 'https://www.youtube.com/embed/l2XBzUZidig' }
+    ]
+
+    const handelClickCarousel = (id) => {
+        const result = arrCarousel.find(item => item.id === id);
+        setTrailerCarousel(result);
+        setIsVideoPlaying(true)
+    }
+
+    const handelResetTrailer = () => {
+        setIsVideoPlaying(false)
+    }
+
+    const showModal = () => {
+        setIsModalVisible(true)
+    }
+
+    const handleOk = () => {
+        setIsModalVisible(false)
+    }
+    
+    const handleCancel = () => {
+        setIsModalVisible(false)
+    }
+
+
     return (
-        <div id="carouselMovieControls" className="carousel carousel-fade slide" data-ride="carousel">
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src="/img/ban-tay-diet-quy.png" className="img-carousel w-100 h-100" alt="movie" />
-                    <div className="carousel-caption">
-                        <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal2">
-                            <img src="/img/play-video.png" alt="movie" />
-                        </button>
-                    </div>
-                </div>
-                <div className="carousel-item">
-                    <img src="/img/lat-mat-48h.png" className="img-carousel w-100 h-100" alt="movie" />
-                    <div className="carousel-caption">
-                        <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal1">
-                            <img src="/img/play-video.png" alt="movie" />
-                        </button>
-                    </div>
-                </div>
-                <div className="carousel-item">
-                    <img src="/img/trang-ti.jpg" className="img-carousel w-100 h-100" alt="movie" />
-                    <div className="carousel-caption">
-                        <button className="icon-play" type="button" data-toggle="modal" data-target="#trailerMovieModal3">
-                            <img src="/img/play-video.png" alt="movie" />
-                        </button>
-                    </div>
-                </div>
+        <div className="carouselMovie">
+            <div id="carouselMovieControls">
+                <Carousel autoplay draggable={true} fade={true}>
+                    {arrCarousel.map((item, index) => {
+                        return <div key={index}>
+                            <div className="carousel-item" onClick={() => { handelClickCarousel(item.id) }}>
+                                <img src={item.img} className="w-100 h-100" alt="movie" />
+                                <div className="carousel-caption">
+                                    <button className="icon-play" type="button" onClick={showModal}>
+                                        <img src="/img/play-video.png" alt="movie" />
+                                    </button>
+                                </div>
+                                {isVideoPlaying && <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} afterClose={handelResetTrailer}>
+                                    {
+                                        <iframe src={trailerCarousel?.trailer} style={{ width: '100%', height: '525px' }} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                    }
+                                </Modal>}
+                            </div>
+                        </div>
+                    })}
+                </Carousel>
+
             </div>
-            <a className="carousel-control-prev" href="#carouselMovieControls" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselMovieControls" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true" />
-                <span className="sr-only">Next</span>
-            </a>
         </div>
     )
 }

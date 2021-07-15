@@ -3,10 +3,11 @@
     height: 700px;
     background-color:#cac9c5;
     overflow: hidden;
+    padding-top: 76px;
 }
 .listFilmSearch .img-animation{
     width: 250px;
-    height: 150px;
+    height: 200px;
     border-radius: 15px;
 }
 .search-content{

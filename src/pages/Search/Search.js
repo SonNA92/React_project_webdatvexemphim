@@ -40,9 +40,9 @@ export default function Search(props) {
 
     return (
         <>
-            <div id="listFilmSearch" className="listFilmSearch pt-5">
+            <div id="listFilmSearch" className="listFilmSearch">
                 <div className="search-content container">
-                    <h5 id="text-notice-search" className="text-danger">Có {arrFilm.length} kết quả tìm thấy cho từ khóa: {searchKey}</h5>
+                    <h5 id="text-notice-search" className="text-danger mt-4">Có {arrFilm.length} kết quả tìm thấy cho từ khóa: {searchKey}</h5>
                     <div className="row mt-4">
                         {renderPhimSearch()}
                     </div>

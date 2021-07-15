@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{memo} from 'react';
 import { NavLink } from 'react-router-dom';
 import "../styeUserAccount.css";
 
 
-export default function UserHistory(props) {
-
+function UserHistory(props) {
+    
     // render Trang chi tiết lịch sử đặt vé
     const renderVeDaDat = () => {
         return props.thongTinTaiKhoanUpdate.thongTinDatVe?.map((item, index) => {
@@ -47,3 +47,6 @@ export default function UserHistory(props) {
         </div>
     )
 }
+
+// sử dụng memo tối ưu perfomance
+export default memo(UserHistory);

@@ -1,4 +1,10 @@
 /* CSS HEADER COMPONENT */
+.headerMovie{
+    position: fixed;
+    width: 100%;
+    opacity: 0.9;
+    z-index: 999;
+}
 .navbar-text{
     display: flex;
     font-size: 16px;

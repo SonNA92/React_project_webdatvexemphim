@@ -13,7 +13,7 @@ export default function HomeTemplate(props) {
             <props.component {...propsRoute} />
             <div id="backToTop" title="Về đầu trang" onClick={()=>{  
                     window.scrollTo({
-                        top:1000,
+                        top:0,
                         left:0,
                         behavior:'smooth'
                     })

@@ -19,7 +19,7 @@ export default function Header(props) {
     }
     
     return (
-    
+        <div className="headerMovie">
         <nav className="navbar navbar-expand-lg bg-white">
             <NavLink className="navbar-brand logo-top ml-2" to="/">
                 <img height={50} width={50} src="/img/web-logo.png" alt="logo" />
@@ -72,7 +72,7 @@ export default function Header(props) {
                                 {/* thực hiện chức năng đăng xuất */}
                                 <button type="button" className="dropdown-item btn-user-event" onClick={()=>{
                                     localStorage.clear();
-                                    history.replace('/login');
+                                    history.replace('/');
                                     window.location.reload();
                                 }} >Đăng xuất</button>
                             </div>
@@ -81,6 +81,7 @@ export default function Header(props) {
                 </form>
             </div>
         </nav>
+        </div>
        
     )
 }
