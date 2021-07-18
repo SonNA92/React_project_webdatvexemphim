@@ -3,7 +3,6 @@ import Footer from '../../Component/Footer/Footer';
 import './styleNews.css';
 
 export default function News(props) {
-
     return (
         <div className="news-movie">
             <div className="container mb-5">

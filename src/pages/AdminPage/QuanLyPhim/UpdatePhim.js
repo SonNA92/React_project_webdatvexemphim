@@ -3,6 +3,7 @@ import "../styleAdmin.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { capNhatPhimAction, getFilmDetailAction } from '../../../action/FilmAction';
 import { useState } from 'react';
+
  
 
 export default function UpdateFilms(props) {
@@ -93,7 +94,8 @@ export default function UpdateFilms(props) {
             values: thongTinChiTiet
         })
     }, [number]);
-    
+
+
 
     return (
         <form id="formUpdateFilms" className="container form-admin-page" onSubmit={handelSubmit} >
@@ -152,7 +154,6 @@ export default function UpdateFilms(props) {
                 <button type="submit" className="btn btn-update btn-success mx-4">Hoàn tất</button>
             </div>
             <p className="text-danger text-center mt-5"> <span className="bg-white p-1">* Nhấp vào Chỉnh sửa để hiện thông tin và Hoàn tất khi kết thúc ! </span></p>
-
         </form>
     )
 }

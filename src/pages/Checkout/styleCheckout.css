@@ -3,12 +3,24 @@
     font-size: 16px;
     font-weight: 400;
     color: white;
-    background-color: rgba(20,50,93,.9);
+    background-image: url(../../asset/image/bg-night-home-1.jpg);
     padding-top: 76px;
 }
+.thongTinPhim, .thongTinRap, .thongTinPay{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #08080885;
+    box-shadow: 1px 1px 10px 1px #888888;
+}
+.thongTinRap{
+    padding: 20px;
+}
 .checkout-text-info{
-    color: #0ad80a;
+    color: white;
     margin-left: 10px;
+}
+.check-out-page .info-time{
+    font-size: 13px !important;
 }
 .checkout-button-buy{
     width: 100%;
@@ -17,6 +29,7 @@
     background-color: rgb(6, 153, 6);
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 1px 1px 10px 1px #888888;
 }
 .checkout-button-buy:hover{
     background-color: orange;

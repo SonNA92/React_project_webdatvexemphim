@@ -1,10 +1,15 @@
 /* CSS CAROUSEL COMPONENT */
 .carouselMovie{
     padding-top: 76px;
+    width: 90%;
+    margin: 0px auto;
 }
 #carouselMovieControls{
     /* height: 600px; */
     overflow: hidden;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 7px #888888;
 }
 #carouselMovieControls .carousel-item{
     height: 600px;

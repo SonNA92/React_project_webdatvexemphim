@@ -1,14 +1,14 @@
 /* CSS PAGE SEARCH */
 .listFilmSearch{
     height: 700px;
-    background-color:#cac9c5;
+    background-image: url(../../asset/image/bg-night-home-1.jpg);
     overflow: hidden;
     padding-top: 76px;
 }
 .listFilmSearch .img-animation{
-    width: 250px;
-    height: 200px;
-    border-radius: 15px;
+    width: 350px;
+    height: 300px;
+    box-shadow: 1px 1px 10px 1px #888888;
 }
 .search-content{
     height: 600px;

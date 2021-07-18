@@ -2,7 +2,7 @@ import {history} from '../App';
 import { ACCESSTOKEN, USER_LOGIN } from '../util/setting';
 import { layChiTietPhongVe } from './FilmAction';
 import { displayLoadingActon, hideLoadingActon } from './LoadingAction';
-import { DANG_NHAP, SET_USER, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER, XOA_DANH_SACH_GHE_DANG_DAT } from './types/FilmType';
+import { DANG_NHAP, SET_USER, SHOW_MODAL, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER, XOA_DANH_SACH_GHE_DANG_DAT } from './types/FilmType';
 import { quanLyNgDungService } from '../sevices/QuanLyNgDungService';
 
 
@@ -28,18 +28,17 @@ export const dangKyAction = (thongTinNguoiDung) => {
     return async dispatch => {
         try {
             const result = await quanLyNgDungService.dangKyTaiKhoan(thongTinNguoiDung);
-            history.push('/login'); // chuyen ve trang chu
-            alert('Đăng kí tài khoản thành công ! Xin mời đăng nhập !');
-
+            dispatch({
+                type: SHOW_MODAL
+            })
+            
         }catch (err) {
             alert(err.response.data);
-            dispatch(hideLoadingActon);
         }
     }
 }
 
 export const dangNhapAction = (thongTinDangNhap) => {
-
     return async dispatch => {
         try {
             const result = await quanLyNgDungService.dangNhapTaiKhoan(thongTinDangNhap);
@@ -48,15 +47,16 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 type:DANG_NHAP,
                 userLogin:result.data
             })
+
             // luu du lieu vao LocalStorage
             localStorage.setItem(USER_LOGIN,JSON.stringify(result.data));
             localStorage.setItem(ACCESSTOKEN,result.data.accessToken);
-            // dong thoi quay lai trang truoc do
-            history.goBack();
             
-
+            // dong thoi quay lai trang truoc do
+            // history.goBack();
+        
         }catch (err) {
-            alert( "Lỗi: ",err.response?.data)
+            alert( " Vui lòng nhập đúng tài khoản hoặc mật khẩu ! ")
         }
     }
 }
@@ -71,10 +71,13 @@ export const datVeAction = (thongTinDatVe) =>{
             await dispatch({
                 type:XOA_DANH_SACH_GHE_DANG_DAT
             });
-            
             // sau khi dat ve xong goi lai action load lai phong ve, va tat loading di
             await dispatch(layChiTietPhongVe(thongTinDatVe.maLichChieu));
-            dispatch(hideLoadingActon);
+            await dispatch(hideLoadingActon);
+            // mở modal đặt vé thành công
+            dispatch({
+                type:SHOW_MODAL
+            })
            
 
         }catch (err) {
@@ -108,8 +111,10 @@ export const capNhatThongTinTaiKhoan = (thongTinTaiKhoan) => {
         try{
             const result = await quanLyNgDungService.capNhatThongTinTaiKhoan(thongTinTaiKhoan);
             // load lai trang
-            dispatch(layThongTinAction(thongTinTaiKhoan.taiKhoan));
-            alert('Cập nhật thông tin thành công!');
+            await dispatch(layThongTinAction(thongTinTaiKhoan.taiKhoan));
+            dispatch({
+                type: SHOW_MODAL
+            })
 
         }catch (err){
             
@@ -122,7 +127,9 @@ export const themNguoiDungAction = (data) => {
     return async dispatch => {
         try{
             const result = await quanLyNgDungService.themNguoiDung(data);
-            alert ('Thêm người dùng thành công');
+            await dispatch({
+                type: SHOW_MODAL
+            })
             // quay về trang user
             history.replace('/admin/users');
 
@@ -152,7 +159,9 @@ export const xoaNguoiDungAction = (taiKhoan) => {
     return async dispatch => {
         try{
             const result = await quanLyNgDungService.xoaNguoiDung(taiKhoan);
-            alert('Xóa thành công!');
+            await dispatch({
+                type: SHOW_MODAL
+            })
             // load lai trang
             dispatch(layDanhSachNgDungAction());
 

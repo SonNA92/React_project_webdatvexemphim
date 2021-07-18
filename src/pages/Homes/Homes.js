@@ -17,7 +17,6 @@ export default class Homes extends Component {
                 <Media/>
                 <MainApp/>
                 <Footer/>
-     
             </div>
         );
     }

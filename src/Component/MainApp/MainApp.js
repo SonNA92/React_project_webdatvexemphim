@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import "./styleMainApp.css";
 
 export default function MainApp(props) {
@@ -13,9 +12,9 @@ export default function MainApp(props) {
                         <h6 className="text-white mt-4">Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và đổi quà hấp dẫn.</h6>
                         <div className="app-btn btn btn-success mt-4">
                             {/*... đường dẫn tới trang tải App */}
-                            <NavLink to="/">
+                            <a href="https://apps.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197" target="_blank">
                                 <h4 className="text-white mb-1">App miễn phí - Tải về ngay !</h4>
-                            </NavLink>
+                            </a>
                         </div>
                         <h6 className="text-white mt-4">VIE có 2 phiên bản dành cho <a className="text-danger" href="#mainApp">iOS</a> và <a className="text-danger" href="#mainApp">Android</a></h6>
 

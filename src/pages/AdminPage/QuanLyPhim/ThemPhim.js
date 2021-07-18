@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { themPhimAction } from '../../../action/FilmAction';
 import "../styleAdmin.css";
 
+
 export default function ThemPhim(props) {
     const dispatch = useDispatch();
     const formik = useFormik({
@@ -81,8 +82,6 @@ export default function ThemPhim(props) {
                       
                 </div>
             </div>
-
-            
             <div className="form-group d-flex justify-content-center mt-5">
                 <button type="button" className="btn btn-update btn-primary mr-4" onClick={()=>{
                     props.history.goBack();

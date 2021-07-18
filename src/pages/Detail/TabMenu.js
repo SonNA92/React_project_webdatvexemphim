@@ -12,10 +12,10 @@ export default class TabMenu extends React.Component {
             return <TabPane tab={<div>
                 <div className="row align-items-center">
                     <div className="col-4">
-                        <img src={htr.logo} width={50} height={50} alt="movie" />
+                        <img className="img-logo-cinema" src={htr.logo} width={50} height={50} alt="movie" />
                     </div>
                     <div className="col-8 detail-tenHTR">
-                        <h5 className="text-white">{htr.tenHeThongRap}</h5>
+                        <h6 className="text-white">{htr.tenHeThongRap}</h6>
                     </div>
                 </div>
             </div>} key={index}>
@@ -23,18 +23,18 @@ export default class TabMenu extends React.Component {
                     return <div key={index}>
                         <div className="d-flex flex-row mt-2 ml-2">
                             <div>
-                                <img src="https://picsum.photos/50/50" alt="movie" />
+                                <img src="https://picsum.photos/100/100" style={{width:'50px',height:'50px',borderRadius:'50%'}} alt="movie" />
                             </div>
                             <div className="ml-4 text-white">
                                 <p>{cumRap.tenCumRap}</p>
                                 <p>{cumRap.lichChieuPhim[index]?.ngayChieuGioChieu?.slice(0,10)}</p>
                             </div>
                         </div>
-                        <div className="d-flex flex-row mt-2 ml-2">
-                            <div style={{width:'50px',height:'50px'}}>
-                                <img className="w-100" src='/img/img-2d.jpg' alt="movie"/>
+                        <div className="d-flex flex-row align-items-center mt-2 ml-2">
+                            <div>
+                                <img className="" src='/img/img-2Dfilm.jpg' style={{width:'50px',height:'50px',borderRadius:'50%'}} alt="movie"/>
                             </div>
-                            <div className= "showtime-detail pb-3">
+                            <div className= "showtime-detail py-2">
                                 <div className="row ml-2">
                                 {/* chi hien thi 6 phan tu  */}
                                     {cumRap.lichChieuPhim.slice(0,6).map((lichChieu,index)=>{
@@ -64,4 +64,3 @@ export default class TabMenu extends React.Component {
     }
 }
 
-// ReactDOM.render(<Demo />, mountNode);

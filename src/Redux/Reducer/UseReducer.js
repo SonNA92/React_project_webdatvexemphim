@@ -1,4 +1,4 @@
-import { DANG_NHAP, SET_USER, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER } from "../../action/types/FilmType";
+import { DANG_NHAP, HIDE_MODAL, SET_USER, SHOW_MODAL, THONG_TIN_TAI_KHOAN, TIM_KIEM_USER } from "../../action/types/FilmType";
 import { USER_LOGIN } from "../../util/setting";
 
 
@@ -13,7 +13,9 @@ if (localStorage.getItem(USER_LOGIN)){
 const stateDefault = {
     userLogin:usLogin,
     thongTinTaiKhoan:{},
-    arrUsers:[]
+    arrUsers:[],
+    show:false,
+    
 }
 
 export const UserReducer = (state = stateDefault,action) => {
@@ -24,8 +26,17 @@ export const UserReducer = (state = stateDefault,action) => {
         }
         case DANG_NHAP:{
             state.userLogin = action.userLogin;
+            state.show = true;
             return {...state};
 
+        }
+        case SHOW_MODAL:{
+            state.show = true;
+            return {...state};
+        }
+        case HIDE_MODAL:{
+            state.show = false;
+            return {...state};
         }
         case THONG_TIN_TAI_KHOAN:{
             state.thongTinTaiKhoan = action.thongTinTaiKhoan;

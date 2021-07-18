@@ -2,15 +2,20 @@
 .headerMovie{
     position: fixed;
     width: 100%;
-    opacity: 0.9;
+    background-color: #000000bf;
+    /* background-color: #ffffffe7; */
+    box-shadow: 1px 1px 10px 1px #888888;
     z-index: 999;
+}
+.navbar-toggler-icon{
+    color: white;
 }
 .navbar-text{
     display: flex;
     font-size: 16px;
 }
 .navbar-text .nav-item .nav-link{
-    color: black;
+    color: white;
 }
 .navbar-text .nav-item .nav-link:hover{
     color: red;
@@ -43,6 +48,16 @@
 .btnLog:hover{
     background-color: orange;
 }
+.user-login-dropdown{
+    display: flex;
+    align-items: center;
+}
+.img-user-login{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
 .dropdown-menu{
     box-shadow: 5px 5px 15px 3px #888888;
 }
@@ -55,6 +70,7 @@
     border-radius: 15px;
 }
 .input-search{
+    background-color: inherit;
     border: none;
     border-radius: 15px;
 }
@@ -62,6 +78,7 @@
     box-shadow: none !important;
 }
 .btn-search{
+    color: white;
     background-color: inherit;
     border: none;
     border-left: 1px solid #bdbbbb;

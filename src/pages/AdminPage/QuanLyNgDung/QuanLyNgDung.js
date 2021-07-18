@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Table, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachNgDungAction, timKiemNguoiDungAction, xoaNguoiDungAction } from '../../../action/UserAction';
+import ModalAdminPage from '../../../Component/Modal/ModalAdminPage';
 
 export default function QuanLyNgDung(props) {
 
@@ -81,6 +82,7 @@ export default function QuanLyNgDung(props) {
               </div>
             </div>
             <Table columns={columns} dataSource={data} />
+            <ModalAdminPage/>
         </div>
     )
 }

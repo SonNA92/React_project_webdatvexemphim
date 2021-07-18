@@ -8,21 +8,22 @@ import { Redirect } from 'react-router';
 import { datVeAction } from '../../action/UserAction';
 // su dung thu vien icon cua antdesign
 import { UserAddOutlined } from '@ant-design/icons'
-import { DAT_GHE } from '../../action/types/FilmType';
+import { DAT_GHE, HIDE_MODAL } from '../../action/types/FilmType';
 import Footer from '../../Component/Footer/Footer';
 import { history } from '../../App';
+import { Modal,Button } from 'react-bootstrap';
 import "./styleCheckout.css";
 
 
 export default function Checkout(props) {
 
     const dispatch = useDispatch();
+    const {show} = useSelector(state=>state.UserReducer)
     const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.FilmReducer);
     // lấy User đăng nhập từ redux về
     const { userLogin } = useSelector(state => state.UserReducer)
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
     useEffect(() => {
-
         // lấy id từ url
         let maLichChieu = props.match.params.id;
         const action = layChiTietPhongVe(maLichChieu);
@@ -32,7 +33,7 @@ export default function Checkout(props) {
 
     // kiểm tra đăng nhập rồi mới cho thao tác
     if (!localStorage.getItem(USER_LOGIN)) {
-        alert('ban can phai dang nhap');
+        alert('Bạn cần phải đăng nhập');
         return <Redirect to='/login' />
     }
 
@@ -66,86 +67,117 @@ export default function Checkout(props) {
         })
     }
 
+    // xử lí đóng modal
+    const handleClose = () => {
+        let action = {
+            type: HIDE_MODAL
+        }
+        dispatch(action)
+    };
+
+
     return (
-    <div className="check-out-page">
-        <div className="container mb-5">
-            <div className="row">
-                <div className="col-lg-8 col-sm-12 mt-5">
-                    <div className="text-center">
-                        <img className="w-100" src="https://tix.vn/app/assets/img/icons/screen.png" alt="movie" />
-                        {renderGhe()}
-                    </div>
-                    <div className="row ml-2 mt-4">
-                        <div className="col-3">
-                            <button className="ghe gheDaDat align-middle"></button>
-                            <span>Ghế đã đặt</span>
+        <div className="check-out-page">
+            <div className="container mb-5">
+                <div className="row">
+                    <div className="col-lg-8 col-sm-12 mt-5">
+                        <div className="text-center">
+                            <img className="w-100" src="https://tix.vn/app/assets/img/icons/screen.png" alt="movie" />
+                            {renderGhe()}
                         </div>
-                        <div className="col-3">
-                            <button className="ghe gheVip align-middle"></button>
-                            <span>Ghế VIP</span>
+                        <div className="row ml-2 mt-4">
+                            <div className="col-3">
+                                <button className="ghe gheDaDat align-middle"></button>
+                                <span>Ghế đã đặt</span>
+                            </div>
+                            <div className="col-3">
+                                <button className="ghe gheVip align-middle"></button>
+                                <span>Ghế VIP</span>
+                            </div>
+                            <div className="col-3">
+                                <button className="ghe gheDangDat align-middle"></button>
+                                <span>Ghế đang chọn</span>
+                            </div>
+                            <div className="col-3">
+                                <button className="ghe gheMinhDat align-middle"></button>
+                                <span>Ghế đã chọn</span>
+                            </div>
                         </div>
-                        <div className="col-3">
-                            <button className="ghe gheDangDat align-middle"></button>
-                            <span>Ghế đang chọn</span>
-                        </div>
-                        <div className="col-3">
-                            <button className="ghe gheMinhDat align-middle"></button>
-                            <span>Ghế đã chọn</span>
-                        </div>
-                    </div> 
-                    <div className="row ml-2 mt-2">
-                        <div className="col-6">
-                            <button className="ghe align-middle"></button>
-                            <span>Ghế chưa đặt</span>
-                        </div>
-                    </div> 
-                </div>
-                <div className="col-lg-4 col-sm-12 mt-5">
-                    <div className="text-success text-center display-4">{danhSachGheDangDat.reduce((tongTien, gheDD, index) => {
-                        return tongTien += gheDD.giaVe;
-                    }, 0).toLocaleString()} VND</div>
-                    <hr />
-                    <div className="thongTinPhim">
-                        <p>Tên phim: <span className="checkout-text-info">{thongTinPhim?.tenPhim}</span> </p>
-                        <p>Địa điểm: <span className="checkout-text-info">{thongTinPhim?.diaChi} - {thongTinPhim?.tenCumRap}</span> </p>
-                        <p>Ngày chiếu: <span className="checkout-text-info">{thongTinPhim?.ngayChieu} - {thongTinPhim?.gioChieu}</span> </p>
-                    </div>
-                    <hr />
-                    <div className="my-2">
-                        <div className="row">
-                            <div className="col-12">
-                                Ghế: {_.sortBy(danhSachGheDangDat, ['maGhe']).map((gheDangDat, index) => {
-                                    return <span key={index} className="checkout-text-info">{gheDangDat.stt} </span>
-                                })}
+                        <div className="row ml-2 mt-2">
+                            <div className="col-6">
+                                <button className="ghe align-middle"></button>
+                                <span>Ghế chưa đặt</span>
                             </div>
                         </div>
                     </div>
-                    <hr />
-                    <div className="my-2">
-                        <p>email: <span className="checkout-text-info">{userLogin.email}</span></p>
+                    <div className="col-lg-4 col-sm-12 mt-5">
+                        <div className="thongTinPhim row mt-5">
+                            <div className="col-3">
+                                <img className="d-bock w-100 h-100" src={thongTinPhim?.hinhAnh} alt="movie" />
+                            </div>
+                            <div className="col-9">
+                                <p className="checkout-text-info">{thongTinPhim?.tenPhim}</p>
+                                <p className="checkout-text-info info-time ">120 phút-2D Digital - 8.3IMDb</p>
+                                <span className="checkout-text-info info-time">Ngày chiếu: </span><span className="text-success ml-2">{thongTinPhim?.ngayChieu} - {thongTinPhim?.gioChieu}</span>
+                            </div>
+                        </div>
+                        <div className="my-3 thongTinRap row">
+                            <div className="col-12">
+                                <p>{thongTinPhim?.tenCumRap}</p>
+                                <p className="info-time">{thongTinPhim?.diaChi}</p>
+                                <div>
+                                    <span className="text-success">{thongTinPhim?.tenRap}</span> -
+                                    Ghế: {_.sortBy(danhSachGheDangDat, ['maGhe']).map((gheDangDat, index) => {
+                                        return <span key={index} className="text-success ml-2">{gheDangDat.stt} </span>
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="my-3 row thongTinPay">
+                            <div className="col-12">
+                                <h6 className="text-white text-center">Tổng tiền</h6>
+                                <p className="text-success text-center" style={{fontSize:'25px'}}>
+                                    {danhSachGheDangDat.reduce((tongTien, gheDD, index) => {
+                                        return tongTien += gheDD.giaVe;
+                                    }, 0).toLocaleString()} VND
+                                </p>
+                                <p>email: <span className="checkout-text-info">{userLogin.email}</span></p>
+                                <p>phone: <span className="checkout-text-info">{userLogin.soDT}</span></p>
+                            </div>
+                        </div>
                         <hr />
-                        <p>Điện thoại: <span className="checkout-text-info">{userLogin.soDT}</span></p>
-                    </div>
-                    <hr />
-                    <div className="checkout-button-buy" onClick={() => {
-                        let thongTinDatVe = {
-                            'maLichChieu': props.match.params.id,
-                            'danhSachVe': danhSachGheDangDat,
-                            'taiKhoanNguoiDung': userLogin.taiKhoan
-                        }
-                        dispatch(datVeAction(thongTinDatVe));
-                    }}>
-                        <div className="display-5 py-2" >ĐẶT VÉ</div>
-                    </div>
-                    <div className="checkout-button-buy mt-3" onClick={()=>{
-                        history.replace(`/useraccount/${userLogin.taiKhoan}`);
-                    }}>
-                        <div className="display-5 py-2">Xem chi tiết vé đặt</div>
+                        <div className="checkout-button-buy" onClick={() => {
+                            let thongTinDatVe = {
+                                'maLichChieu': props.match.params.id,
+                                'danhSachVe': danhSachGheDangDat,
+                                'taiKhoanNguoiDung': userLogin.taiKhoan
+                            }
+                            dispatch(datVeAction(thongTinDatVe));
+                        }}>
+                            <div className="display-5 py-2" >ĐẶT VÉ</div>
+                        </div>
+                        <div className="checkout-button-buy mt-3" onClick={() => {
+                            history.replace(`/useraccount/${userLogin.taiKhoan}`);
+                        }}>
+                            <div className="display-5 py-2">Xem chi tiết vé đặt</div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <Footer />
+            <Modal show={show} dialogClassName="modal-login-success" onHide={handleClose} centered>
+                <Modal.Body>
+                    <p>Chúc mừng bạn đã đặt vé thành công !</p>
+                    <div className="img-successful">
+                        <img className="w-100" src="/img/img-tich-xanh-3.png" alt="movie" />
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="info" onClick={handleClose}>
+                        Đóng
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
-        <Footer/>
-    </div>
     )
 }

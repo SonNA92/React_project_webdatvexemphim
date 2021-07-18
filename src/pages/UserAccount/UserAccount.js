@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { capNhatThongTinTaiKhoan, layThongTinAction } from '../../action/UserAction';
 import Footer from '../../Component/Footer/Footer';
 import UserHistory from './UserHistory/UserHistory';
+import { Modal,Button } from 'react-bootstrap';
+import { HIDE_MODAL } from '../../action/types/FilmType';
 import "./styeUserAccount.css";
 
 
 export default function UserAccount(props) {
 
     const dispatch = useDispatch();
-    const { thongTinTaiKhoan, userLogin } = useSelector(state => state.UserReducer);
+    const { thongTinTaiKhoan, userLogin, show } = useSelector(state => state.UserReducer);
     const [number, setNumber] = useState(1);
     const [click,setClick] = useState(1);
     const [state, setState] = useState({
@@ -39,6 +41,7 @@ export default function UserAccount(props) {
         dispatch(layThongTinAction(props.match.params.id));
     }, [])
 
+    // set values khi click lấy thông tin
     useEffect(() => {
         setState({
             values: thongTinTaiKhoanUpdate
@@ -119,6 +122,14 @@ export default function UserAccount(props) {
         // Dua du lieu len Redux
         dispatch(capNhatThongTinTaiKhoan(values));
     }
+
+    // xử lí đóng modal
+    const handleClose = () => {
+        let action = {
+            type: HIDE_MODAL
+        }
+        dispatch(action)
+    };
     
 
     return (
@@ -213,6 +224,19 @@ export default function UserAccount(props) {
                 </div>
             </div>
             <Footer />
+            <Modal show={show} dialogClassName="modal-login-success" onHide={handleClose} centered>
+                <Modal.Body>
+                    <p>Cập nhật thông tin thành công !</p>
+                    <div className="img-successful">
+                        <img className="w-100" src="/img/img-tich-xanh-3.png" alt="movie" />
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="info" onClick={handleClose}>
+                        Đóng
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

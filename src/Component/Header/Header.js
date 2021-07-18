@@ -20,7 +20,7 @@ export default function Header(props) {
     
     return (
         <div className="headerMovie">
-        <nav className="navbar navbar-expand-lg bg-white">
+        <nav className="navbar navbar-expand-lg">
             <NavLink className="navbar-brand logo-top ml-2" to="/">
                 <img height={50} width={50} src="/img/web-logo.png" alt="logo" />
             </NavLink>
@@ -32,7 +32,7 @@ export default function Header(props) {
             <div className="collapse navbar-collapse" id="collapsibleNavId">
                 <ul className="navbar-nav navbar-text mx-lg-auto mt-2 mt-lg-0 ">
                     <li className="nav-item mx-2 active">
-                        <NavLink exact activeClassName="text-danger" className="nav-link font-weight-nomal" style={{ color: 'black' }} to="/home">Trang chủ</NavLink>
+                        <NavLink exact activeClassName="text-danger" className="nav-link font-weight-nomal" to="/home">Trang chủ</NavLink>
                     </li>
                     <li className="nav-item mx-2">
                         <a className="nav-link font-weight-nomal" href="#footer">Liên hệ</a>
@@ -54,10 +54,13 @@ export default function Header(props) {
                     {/* kiểm tra đăng nhập, true => hiển thị tên tài khoản */}
                     {
                         _.isEmpty(userLogin) ? <div className="user-login">
-                            <div className="btnLog mr-1"><NavLink activeClassName="text-danger" className="nav-link font-weight-nomal text-center" style={{ color: 'black' }} to="/login">Đăng nhập</NavLink></div>
-                            <div className="btnLog"><NavLink className="nav-link font-weight-nomal text-center" style={{ color: 'black' }} to="/register">Đăng ký</NavLink></div>
-                        </div> : <div className="dropdown btn-user">
-                            <NavLink className=" nav-link font-weight-bold text-danger" to="/" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div className="btnLog mr-1"><NavLink activeClassName="text-danger" className="nav-link font-weight-nomal text-center" style={{ color: 'white' }} to="/login">Đăng nhập</NavLink></div>
+                            <div className="btnLog"><NavLink className="nav-link font-weight-nomal text-center" style={{ color: 'white' }} to="/register">Đăng ký</NavLink></div>
+                        </div> : <div className="dropdown ">
+                            <NavLink className="user-login-dropdown nav-link font-weight-bold text-danger" to="/" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div className="img-user-login mr-2">
+                                    <img src="https://picsum.photos/50/50" alt="movie" />
+                                </div>
                                 {userLogin.taiKhoan}
                             </NavLink>
                             {/* các chức năng của người dùng */}

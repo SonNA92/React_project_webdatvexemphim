@@ -1,16 +1,19 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { dangKyAction } from '../../action/UserAction';
 import { NavLink } from 'react-router-dom';
+import { Modal,Button } from 'react-bootstrap';
 import "./styleRegister.css";
 import { history } from '../../App';
+import { HIDE_MODAL } from '../../action/types/FilmType';
 
 
 export default function Register(props) {
 
     const dispatch = useDispatch();
+    const {show} = useSelector(state=>state.UserReducer)
     // su dung thu vien Formik de lay du lieu nguoi dung
     const formik = useFormik({
         initialValues: { // khai bao cac thuoc tinh input
@@ -36,6 +39,12 @@ export default function Register(props) {
             dispatch(action);
         }
     })
+
+    const handleClose = () => {
+        dispatch({type:HIDE_MODAL})
+        // khi đóng modal quay về trang login
+        history.push('/home');
+    };
 
 
 
@@ -99,6 +108,20 @@ export default function Register(props) {
                     </div>
                 </div>
             </form>
+            {/* Modal show khi đăng ký thành công */}
+            <Modal show={show} dialogClassName="modal-login-success" onHide={handleClose} centered>
+                <Modal.Body>
+                    <p>Chúc mừng bạn đã đăng ký thành công ! Xin mời đăng nhập</p>
+                    <div className="img-successful">
+                        <img className="w-100" src="/img/img-tich-xanh-3.png" alt="movie" />
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="info" onClick={handleClose}>
+                        Tiếp tục
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }

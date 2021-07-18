@@ -4,6 +4,7 @@
     background-image: url(../../asset/image/bg-app.jpg);
     background-size: cover;
     padding-top: 100px;
+    box-shadow: 1px 1px 10px 1px #888888;
 }
 .mainApp .app-content{
     text-align: justify;
@@ -20,6 +21,7 @@
     overflow: hidden;
     border: 5px solid black;
     border-radius: 20px;
+    box-shadow: 1px 1px 10px 1px #888888;
 }
 /* RESPONSIVE MAINAPP */
 @media (min-width: 991px){

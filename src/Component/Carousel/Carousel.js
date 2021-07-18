@@ -51,7 +51,7 @@ export default function CarouselMovie(props) {
                                 </div>
                                 {isVideoPlaying && <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} afterClose={handelResetTrailer}>
                                     {
-                                        <iframe src={trailerCarousel?.trailer} style={{ width: '100%', height: '525px' }} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                        <iframe title="VideoMovieTrailer" src={trailerCarousel?.trailer} style={{ width: '100%', height: '525px' }} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                     }
                                 </Modal>}
                             </div>

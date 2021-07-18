@@ -9,3 +9,29 @@
 .ant-modal-footer{
     display: none;
 }
+
+/* CSS MODAL ADMIN PAGE */
+.modal-admin-success{
+    text-align: center;
+    width: 400px;
+}
+.modal-admin-success .modal-content{
+    height: 200px;
+    box-shadow: 2px 2px 50px 5px black inset;
+    border-radius: 15px;
+}
+.modal-admin-success .modal-body{
+    font-size: 20px;
+    color: red;
+}
+.modal-admin-success .img-successful{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.modal-admin-success .modal-footer{
+    padding: 0.5rem !important;
+}

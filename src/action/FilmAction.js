@@ -1,5 +1,5 @@
 import { quanLyPhimService } from '../sevices/QuanLyPhimService';
-import { SET_CHI_TIET_CUM_RAP, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL,TIM_KIEM_PHIM } from './types/FilmType';
+import { SET_CHI_TIET_CUM_RAP, SET_CHI_TIET_PHIM_THEO_NGAY, SET_CHI_TIET_PHONG_VE, SET_FILM, SET_FILM_DETAIL,SHOW_MODAL,TIM_KIEM_PHIM } from './types/FilmType';
 import { history } from '../App';
 
 
@@ -88,11 +88,15 @@ export const themPhimAction = (formData) =>{
     return async dispatch =>{
         try{
             const result = await quanLyPhimService.themPhim(formData);
-            alert('Thêm phim thành công !');
+            await dispatch({
+                type:SHOW_MODAL
+            })
             // quay về trang phim
             history.replace("/admin/films");
+            // load lại trang
+            dispatch(getApiFilmAction("GP01"));
         }catch (err){
-            console.log(err.response?.data)
+            alert(err.response?.data)
         }
     }
 }
@@ -102,11 +106,12 @@ export const xoaPhimAction = (maPhim) => {
     return async dispatch =>{
         try{
             const result = await quanLyPhimService.xoaPhim(maPhim);
-            alert('Xóa phim thành công !');
+            await dispatch({
+                type:SHOW_MODAL
+            })
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
-            console.log(err.response?.data)
             alert(err.response?.data)
         }
     }
@@ -121,7 +126,7 @@ export const layThongTinCumRapTheoHeThong = (maHeThongRap) => {
                 danhSachHeThongRap: result.data
             })
         }catch(error){
-            console.log('error',error.response?.data);
+            alert(error.response?.data);
         }
     }
 
@@ -131,25 +136,27 @@ export const themLichChieuAction = (formData) =>{
     return async dispatch => {
         try{
             const result = await quanLyPhimService.themLichChieu(formData);  
-            alert('Thêm lịch chiếu thành công !');
+            dispatch({
+                type:SHOW_MODAL
+            })
         }catch(error){
-            console.log(error.response?.data);
+            alert(error.response?.data);
         }
     }
-}
+}   
 
 export const capNhatPhimAction = (formData) => {
     return async dispatch =>{
         try{
             const result = await quanLyPhimService.capNhatPhim(formData);
-            alert('Cập nhật phim thành công !');
+            await dispatch({
+                type:SHOW_MODAL
+            })
             // quay lại quản lý phim
             history.replace("/admin/films");
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
-            
         }catch (err){
-            console.log(err.response?.data)
             alert(err.response?.data)
         }
     }

@@ -4,13 +4,24 @@
 }
 .user-account{
     /* background-color: #f7f6f6; */
-    padding-top: 100px;
+    padding-top: 70px;
     padding-bottom: 50px;
 }
+.user-account-page .nav-pills .nav-link{
+    background-color: papayawhip;
+    color: black;
+}
+.user-account-page .nav-pills .nav-link.active{
+    box-shadow: 1px 1px 10px 3px #888888;
+    background-color: orange;
+    color: white;
+}
 .user-account .tab-content{
-    background-color: rgba(20,50,93,.9);
+    /* background-color: rgba(20,50,93,.9); */
+    background-color: #08080885;
     padding: 70px;
     border-radius: 20px;
+    box-shadow: 1px 1px 10px 7px #888888;
 }
 .user-account .tab-content .text-input{
     text-align: center;
@@ -28,9 +39,9 @@
     width: 150px;
 }
 .btn-update:hover{
-    background-color: white;
+    background-color: orange;
     color: black;
-    border: 1px solid white;
+    border: 1px solid orange;
 }
 .user-account span{
     font-size: 16px;
@@ -44,7 +55,7 @@
     border-radius: 2px;
 }
 .chiTietRap{
-    background-color: orange;
+    background-color: inherit;
     padding: 10px;
     border-radius: 15px;
 }

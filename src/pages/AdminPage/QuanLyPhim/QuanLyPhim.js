@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Table, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getApiFilmAction, timKiemPhimAction, xoaPhimAction } from '../../../action/FilmAction';
+import ModalAdminPage from '../../../Component/Modal/ModalAdminPage';
 
 export default function QuanLyPhim(props) {
 
@@ -77,6 +78,7 @@ export default function QuanLyPhim(props) {
               </div>
             </div>
             <Table columns={columns} dataSource={data} />
+            <ModalAdminPage/>
         </div>
     )
 }

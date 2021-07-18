@@ -10,12 +10,36 @@
     height: 400px;
     overflow: hidden;
     border-radius: 10px;
+    box-shadow: 1px 1px 15px 5px #888888;
+}
+.film-detail-content{
+    background-color: #08080885;
+    box-shadow: 1px 1px 10px 7px #888888;
+    border-radius: 20px;
+}
+.film-Detail .nav-pills .nav-link{
+    background-color: inherit;
+    color: white;
+}
+.film-Detail .nav-pills .nav-link.active{
+    box-shadow: 1px 1px 10px 7px #888888;
 }
 #pills-tabContent-detail{
     padding: 10px;
-    border: 2px solid white;
-    background-color:rgba(20,50,93,.9);
+    /* border: 2px solid white; */
+    box-shadow: 1px 1px 10px 7px #888888;
+    background-color: #08080885;
     border-radius: 15px;
+}
+.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab{
+    opacity: 0.5;
+}
+.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab-active{
+    opacity: 1;
+}
+.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab-active .img-logo-cinema{
+    border-radius: 50%;
+    box-shadow: -1px 1px 15px 10px white;
 }
 .ant-tabs-tab-btn{
     width: 100%;
@@ -51,7 +75,7 @@
     background-color: white;
 }
 .detail-reviews{
-    background-color: #efa318;
+    background-color: inherit;
     color: white;
     padding: 20px 30px;
     border-radius: 10px;

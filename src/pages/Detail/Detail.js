@@ -39,7 +39,7 @@ export default function Detail(props) {
 
     // Do API thiếu 1 số trường như thời lượng, đạo diễn, diễn viên,... nên set cứng minh họa
     return (
-        <div className="film-Detail" style={{ background: "url(/img/bg-star.jpg) center center", backgroundSize: "cover", }}>
+        <div className="film-Detail" style={{ background: "url(/img/bg-night-home-2.jpg) center center" }}>
             <div className="container pt-5 pb-4">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">
@@ -47,11 +47,11 @@ export default function Detail(props) {
                             <img className="w-100 h-100" src={thongTinChiTiet.hinhAnh} alt="movie" />
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="film-detail-content col-lg-7 col-md-7 col-sm-12 p-3">
                         <div className="row mb-3">
                             <div className="col-12">
                                 <h2 className="text-white mb-0">{thongTinChiTiet.tenPhim}</h2>
-                                <span>120 phút</span>
+                                <span>120 phút - 8.3IMDb</span>
                             </div>
                         </div>
                         <div className="row">
@@ -84,7 +84,6 @@ export default function Detail(props) {
                             handelClickButton()
                         }} >Xem Trailer</button>
                     </div>
-                    <div className="col-lg-2"></div>
                 </div>
 
                 {/* Phần hiển thị lịch chiếu phim & reviews*/}
@@ -108,16 +107,18 @@ export default function Detail(props) {
                             </div>
                         </div>
                         <div className="tab-pane fade" id="pills-profile-detail" role="tabpanel" aria-labelledby="pills-profile-tab-detail">
-                            <div className="detail-reviews ml-4 mb-4">
+                            <div className="detail-reviews ml-4 mb-3">
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt fugiat consequuntur maiores ipsum nulla. Perferendis aliquid doloribus quisquam porro eum mollitia beatae fuga, necessitatibus provident ad delectus nihil eos. Eos.
                                 </p>
                             </div>
-                            <div className="detail-reviews ml-4 mb-4">
+                            <hr style={{backgroundColor:'white',width:'10%'}} />
+                            <div className="detail-reviews ml-4 mb-3">
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores voluptas architecto, perspiciatis voluptates recusandae.
                                 </p>
                             </div>
+                            <hr style={{backgroundColor:'white',width:'10%'}} />
                             <div className="detail-reviews ml-4">
                                 <p>
                                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, et!

@@ -3,14 +3,28 @@
     margin-top: 70px;
     padding-bottom: 50px;
 }
+.listfilms .nav-pills .nav-link{
+    background-color: inherit;
+    color: white;
+}
+.listfilms .nav-pills .nav-link.active{
+    box-shadow: 1px 1px 10px 7px #888888;
+}
 .listfilms .carousel-inner{
     overflow: unset;
 }
 .carousel-item .card{
     height: 430px;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: inherit;
+    box-shadow: 1px 1px 10px 7px #888888;
+}
+.carousel-item .card .card-body{
+    background-color: inherit !important;
+    color: white !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .carousel-item .card-img-top{
     height: 350px;

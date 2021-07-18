@@ -32,7 +32,7 @@ function UserHistory(props) {
                                 </div>
                             </div>
                             <div className="ngayDat">
-                                <p>Ngày đặt: {item.ngayDat?.slice(0, 10)} - Giờ chiếu: {item.ngayDat?.slice(12, 16)} - {chiTietVe.tenRap} - Ghế: {chiTietVe.tenGhe}</p>
+                                <p className="text-white">Ngày đặt: {item.ngayDat?.slice(0, 10)} - Giờ chiếu: {item.ngayDat?.slice(12, 16)} - {chiTietVe.tenRap} - Ghế: {chiTietVe.tenGhe}</p>
                             </div>
                         </div>
                     })}
