@@ -15,6 +15,7 @@ export default function LoginFacebook(props) {
         email:'',
         picture:''
     })
+
     let fbContent;
     const responseFacebook = (response) => {
         setState({
@@ -31,14 +32,14 @@ export default function LoginFacebook(props) {
 
     if (state.isLoggedIn){
         // history.push('/home')
-        return async dispatch => {
+        
             let action = {
                 type:'SET_USER_FB',
                 userLogin:{taiKhoan:state.name,email:state.email}
             }
-            await dispatch(action)
+            dispatch(action)
             history.push('/home')
-        }
+       
         
         
     }else{
