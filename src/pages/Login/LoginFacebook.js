@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { history } from '../../App';
 import './styleLogin.css'
 
-
+// thử chức năng Login Fb
 export default function LoginFacebook(props) {
 
     const dispatch = useDispatch();
@@ -31,16 +31,12 @@ export default function LoginFacebook(props) {
     }
 
     if (state.isLoggedIn){
-        // history.push('/home')
-        
-            let action = {
-                type:'SET_USER_FB',
-                userLogin:{taiKhoan:state.name,email:state.email}
-            }
-            dispatch(action)
-            history.push('/home')
-       
-        
+        let action = {
+            type:'SET_USER_FB',
+            userLogin:{taiKhoan:state.name,email:state.email}
+        }
+        dispatch(action)
+        history.push('/home')     
         
     }else{
         fbContent=(

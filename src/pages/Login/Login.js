@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { Modal,Button } from 'react-bootstrap';
 import "./styleLogin.css";
 import { HIDE_MODAL } from '../../action/types/FilmType';
-import LoginFacebook from './LoginFacebook';
+// import LoginFacebook from './LoginFacebook';
 
 
 
@@ -67,8 +67,8 @@ export default function Login(props) {
                     }}>Đăng ký</button>
                 </div>
                 <div className="social-Log mt-5">
-                    <LoginFacebook/>
-                    {/* <img className="img-social-log" src="./img/login-facebook.png" alt="login" /> */}
+                    {/* <LoginFacebook/> */}
+                    <img className="img-social-log" src="./img/login-facebook.png" alt="login" />
                 </div>
                 <div className="social-Log my-2">
                     <img className="img-social-log" src="./img/login-zalo.png" alt="login" />

@@ -45,10 +45,6 @@ export const UserReducer = (state = stateDefault,action) => {
             state.arrUsers = action.danhSachNguoiDungTimKiem;
             return {...state};
         }
-        case 'SET_USER_FB':{
-            state.userLogin = action.userLogin;
-            return {...state};
-        }
         
         default : {
             return {...state}
