@@ -27,6 +27,7 @@ export default function ThemPhim(props) {
                 formData.append(key,values[key]);     
             }
             dispatch(themPhimAction(formData));
+            
         }
     });
 

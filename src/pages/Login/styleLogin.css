@@ -7,6 +7,12 @@
     text-align: center;
     border-radius: 20px;
 }
+.social-Log .kep-login-facebook{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px !important;
+    text-transform: inherit;
+}
 .forgotPassword{
     color: white;
 }

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import { useDispatch } from 'react-redux';
 import { history } from '../../App';
+import './styleLogin.css'
 
 
 export default function LoginFacebook(props) {
 
+    const dispatch = useDispatch();
     const [state,setState] = useState({
         isLoggedIn : false,
         userId:'',
@@ -27,7 +30,17 @@ export default function LoginFacebook(props) {
     }
 
     if (state.isLoggedIn){
-        history.push('/home')
+        // history.push('/home')
+        return async dispatch => {
+            let action = {
+                type:'SET_USER_FB',
+                userLogin:{taiKhoan:state.name,email:state.email}
+            }
+            await dispatch(action)
+            history.push('/home')
+        }
+        
+        
     }else{
         fbContent=(
             <FacebookLogin

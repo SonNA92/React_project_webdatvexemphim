@@ -28,7 +28,6 @@ export const UserReducer = (state = stateDefault,action) => {
             state.userLogin = action.userLogin;
             state.show = true;
             return {...state};
-
         }
         case SHOW_MODAL:{
             state.show = true;
@@ -44,6 +43,10 @@ export const UserReducer = (state = stateDefault,action) => {
         }
         case TIM_KIEM_USER:{
             state.arrUsers = action.danhSachNguoiDungTimKiem;
+            return {...state};
+        }
+        case 'SET_USER_FB':{
+            state.userLogin = action.userLogin;
             return {...state};
         }
         
