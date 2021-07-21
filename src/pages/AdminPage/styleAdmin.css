@@ -26,6 +26,20 @@
     color: white;
     margin-bottom: 10px;
 }
+.page-taoLichChieu .form-admin-page{
+    height: 500px;
+}
+.page-taoLichChieu .table{
+    border: 2px solid white;
+}
+.page-taoLichChieu .contentLichChieu{
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.contentLichChieu .table tr td{
+    vertical-align: middle;
+}
 
 /* RESPONSIVE ADMIN PAGE */
 /* Trang ADMIN nên dùng bản PC nên không cần responsive */

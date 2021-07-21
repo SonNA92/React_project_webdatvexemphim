@@ -19,7 +19,6 @@ export const getApiFilmAction = (maNhom) =>{
     }
 }
 
-
 export const getFilmDetailAction = (maPhim) => {
     return async dispatch => {
         try{
@@ -136,9 +135,12 @@ export const themLichChieuAction = (formData) =>{
     return async dispatch => {
         try{
             const result = await quanLyPhimService.themLichChieu(formData);  
-            dispatch({
+            await dispatch({
                 type:SHOW_MODAL
             })
+
+            // load lại danh sách lịch chiếu mới
+            dispatch(getFilmDetailAction(formData.maPhim))
         }catch(error){
             alert(error.response?.data);
         }
@@ -158,6 +160,7 @@ export const capNhatPhimAction = (formData) => {
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
             alert(err.response?.data)
+            console.log('abc')
         }
     }
 }

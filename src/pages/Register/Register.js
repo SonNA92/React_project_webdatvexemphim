@@ -29,8 +29,9 @@ export default function Register(props) {
             taiKhoan: Yup.string().required('tài khoản không được bỏ trống'),
             matKhau: Yup.string().required('mật khẩu không được bỏ trống').min(6, 'mật khẩu tối thiểu 6 ký tự').max(32, 'mật khẩu tối đa 32 ký tự'),
             email: Yup.string().email('email không hợp lệ').required('email không được bỏ trống'),
-            soDt: Yup.string().matches(/^[0-9]+$/, 'số điện thoại chỉ chứa số'),
+            soDt: Yup.string().matches(/^[0-9]+$/, 'số điện thoại chỉ chứa số').required('số điện thoại không được bỏ trống'),
             hoTen: Yup.string().required('họ tên không được bỏ trống')
+            
         }),
         onSubmit: (values) => {
             
@@ -43,16 +44,19 @@ export default function Register(props) {
     const handleClose = () => {
         dispatch({type:HIDE_MODAL})
         // khi đóng modal quay về trang login
-        history.push('/home');
+        history.replace('/login');
     };
 
 
 
     return (
-        <div className="container" style={{ paddingTop: '20px', width: '600px' }}>
-            <form className="formLog" style={{ height: '700px'}} onSubmit={formik.handleSubmit}>
+        <div className="container" style={{ paddingTop: '100px', width: '600px' }}>
+            <form className="formLog" onSubmit={formik.handleSubmit}>
                 <NavLink to="/">
-                    <img className="imgLogo" src="./img/logo-login.png" alt="logo" />
+                    <img title="Đóng" className="log-icon-x" src="/img/x-icon.jpg" alt="iconX" />
+                </NavLink>
+                <NavLink to="/">
+                    <img className="imgLogo" src="/img/logo-login.png" alt="logo" />
                 </NavLink>
                 <div className="row">
                     <div className="col-6">
@@ -90,22 +94,10 @@ export default function Register(props) {
                     </div>
                 </div>
                 <div className="form-group">
-
-                    <button type="submit" className="btnLog mt-4 mr-3">Đăng ký</button>
-                    <button type="button" className="btnLog mt-4 ml-3" onClick={()=>{
+                    <button type="submit" className="btnLog mt-5 mb-4" style={{width:'80%',height:'50px',fontSize:'18px',fontWeight:'bold'}}>Đăng ký</button><br />
+                    <p className="text-notice-register" style={{cursor:'pointer'}} onClick={()=>{
                         history.replace('/login');
-                    }}>Đăng nhập</button>
-                </div>
-                <div style={{ width: '400px', margin: '0 auto' }}>
-                    <div className="social-Log mt-5">
-                        <img className="img-social-log" src="./img/login-facebook.png" alt="login" />
-                    </div>
-                    <div className="social-Log my-2">
-                        <img className="img-social-log" src="./img/login-zalo.png" alt="login" />
-                    </div>
-                    <div className="social-Log">
-                        <img className="img-social-log" src="./img/login-google.png" alt="login" />
-                    </div>
+                    }}>Bạn đã có tài khoản ? <span className="text-warning">Đăng nhập ngay</span></p>
                 </div>
             </form>
             {/* Modal show khi đăng ký thành công */}

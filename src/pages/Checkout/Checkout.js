@@ -33,7 +33,7 @@ export default function Checkout(props) {
 
     // kiểm tra đăng nhập rồi mới cho thao tác
     if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Bạn cần phải đăng nhập');
+        alert('Bạn cần phải đăng nhập để tiếp tục thao tác !');
         return <Redirect to='/login' />
     }
 
@@ -77,7 +77,7 @@ export default function Checkout(props) {
 
 
     return (
-        <div className="check-out-page">
+        <div className="check-out-page" style={{ background: "url(/img/bg-night-home-1.jpg)" }}>
             <div className="container mb-5">
                 <div className="row">
                     <div className="col-lg-8 col-sm-12 mt-5">

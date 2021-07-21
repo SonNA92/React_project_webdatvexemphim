@@ -39,7 +39,7 @@ export default function Detail(props) {
 
     // Do API thiếu 1 số trường như thời lượng, đạo diễn, diễn viên,... nên set cứng minh họa
     return (
-        <div className="film-Detail" style={{ background: "url(/img/bg-night-home-2.jpg) center center" }}>
+        <div className="film-Detail" style={{ background: "url(/img/bg-night-home-2.jpg)" }}>
             <div className="container pt-5 pb-4">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-12">

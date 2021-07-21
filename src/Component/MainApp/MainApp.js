@@ -4,7 +4,7 @@ import "./styleMainApp.css";
 export default function MainApp(props) {
 
     return (
-        <div className="mainApp" id="mainApp">
+        <div className="mainApp" id="mainApp" style={{background:"url(/img/bg-app.jpg)"}}>
             <div className="container">
                 <div className="app-movie row">
                     <div className="app-content col-lg-6 col-md-6 col-xs-12">

@@ -7,7 +7,6 @@ import { quanLyNgDungService } from '../sevices/QuanLyNgDungService';
 
 
 
-
 export const layDanhSachNgDungAction = () =>{
     return async (dispatch) =>{
         try {
@@ -52,8 +51,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
             localStorage.setItem(USER_LOGIN,JSON.stringify(result.data));
             localStorage.setItem(ACCESSTOKEN,result.data.accessToken);
             
-            // dong thoi quay lai trang truoc do
-            // history.goBack();
         
         }catch (err) {
             alert( " Vui lòng nhập đúng tài khoản hoặc mật khẩu ! ")

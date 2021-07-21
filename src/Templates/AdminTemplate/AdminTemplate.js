@@ -59,7 +59,7 @@ export const AdminTemplate = (props) => {
                             <a href="#movie" className="mr-5 text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {userLogin.taiKhoan} <i className="fa fa-angle-down ml-2"></i></a>
                             <div className="dropdown-menu">
                                 <button type="button" className="dropdown-item btn-user-event" onClick={()=>{
-                                    history.replace(`/useraccount/${userLogin.taiKhoan}`)
+                                    history.push(`/useraccount/${userLogin.taiKhoan}`)
                                 }} >Thông tin</button>
                                 <button type="button" className="dropdown-item btn-user-event" onClick={()=>{
                                     localStorage.clear();

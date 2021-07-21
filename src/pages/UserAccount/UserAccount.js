@@ -133,8 +133,8 @@ export default function UserAccount(props) {
     
 
     return (
-        <div className="user-account-page">
-            <div className="user-account" style={{ background: 'url(/img/bg-login.jpg) 100% 100%' }}>
+        <div className="user-account-page" style={{ background: 'url(/img/bg-login.jpg) 100% 100%' }}>
+            <div className="user-account" >
                 <div className="container pb-5">
                     <ul className="nav nav-pills pills-tab-movie mb-4" id="pills-tab-user" role="tablist">
                         <li className="nav-item" role="presentation">

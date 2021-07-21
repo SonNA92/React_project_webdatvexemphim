@@ -70,6 +70,7 @@ export default function UpdateFilms(props) {
     
     const handelSubmit = (e) => {
         e.preventDefault();
+        console.log(state.values)
         let valid = true;
         for (let keyName in state.errors) {
             if (state.errors[keyName] !== '') {

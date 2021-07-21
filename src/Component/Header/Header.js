@@ -57,12 +57,12 @@ export default function Header(props) {
                             <div className="btnLog mr-1"><NavLink activeClassName="text-danger" className="nav-link font-weight-nomal text-center" style={{ color: 'white' }} to="/login">Đăng nhập</NavLink></div>
                             <div className="btnLog"><NavLink className="nav-link font-weight-nomal text-center" style={{ color: 'white' }} to="/register">Đăng ký</NavLink></div>
                         </div> : <div className="dropdown ">
-                            <NavLink className="user-login-dropdown nav-link font-weight-bold text-danger" to="/" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div className="user-login-dropdown nav-link font-weight-bold text-danger" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div className="img-user-login mr-2">
                                     <img src="https://picsum.photos/50/50" alt="movie" />
                                 </div>
                                 {userLogin.taiKhoan}
-                            </NavLink>
+                            </div>
                             {/* các chức năng của người dùng */}
                             <div className="dropdown-menu">
                                 <button type="button" className="dropdown-item btn-user-event" onClick={()=>{

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { dangNhapAction } from '../../action/UserAction';
@@ -33,13 +33,24 @@ export default function Login(props) {
         // khi đóng modal quay về trang trước đó
         history.goBack();
     };
+    // xử lí Modal phụ
+    let [showModal,setShowModal] = useState(false)
+    const handleClick = () => {
+       setShowModal(true)
+    }
+    const handleClickClose = () => {
+        setShowModal(false)
+    }
     
 
     return (
-        <div className="container" style={{ paddingTop: '100px', width: '400px' }}>
+        <div className="container" style={{ paddingTop: '80px', width: '400px' }}>
             <form className="formLog" onSubmit={formik.handleSubmit} >
                 <NavLink to="/">
-                    <img className="imgLogo" src="./img/logo-login.png" alt="logo" />
+                    <img title="Đóng" className="log-icon-x" src="/img/x-icon.jpg" alt="iconX" />
+                </NavLink>
+                <NavLink to="/">
+                    <img className="imgLogo" src="/img/logo-login.png" alt="logo" />
                 </NavLink>
 
                 <div className="form-group">
@@ -61,20 +72,19 @@ export default function Login(props) {
                     </div>
                 </div>
                 <div className="form-group mt-4">
-                    <button type="submit" className="btnLog mr-2">Đăng nhập</button>
-                    <button type="button" className="btnLog mr-2" onClick={() => {
+                    <button type="submit" className="btnLog mb-2 mr-2" style={{width:'100%',fontSize:'16px',fontWeight:'bold'}}>Đăng nhập</button>
+                    <p className="text-notice-register" style={{cursor:'pointer'}} onClick={()=>{
                         history.replace('/register');
-                    }}>Đăng ký</button>
+                    }}>Bạn chưa có tài khoản ? <span className="text-warning">Đăng ký ngay</span></p>
                 </div>
-                <div className="social-Log mt-5">
-                    {/* <LoginFacebook/> */}
-                    <img className="img-social-log" src="./img/login-facebook.png" alt="login" />
+                <div className="social-Log mt-5" onClick={handleClick}>
+                    <img className="img-social-log" src="/img/login-facebook.png" alt="login" />
                 </div>
-                <div className="social-Log my-2">
-                    <img className="img-social-log" src="./img/login-zalo.png" alt="login" />
+                <div className="social-Log my-2" onClick={handleClick}>
+                    <img className="img-social-log" src="/img/login-zalo.png" alt="login" />
                 </div>
-                <div className="social-Log">
-                    <img className="img-social-log" src="./img/login-google.png" alt="login" />
+                <div className="social-Log" onClick={handleClick}>
+                    <img className="img-social-log" src="/img/login-google.png" alt="login" />
                 </div>
             </form>
             {/* Modal bật lên khi đăng nhập thành công */}
@@ -88,6 +98,18 @@ export default function Login(props) {
                 <Modal.Footer>
                     <Button variant="info" onClick={handleClose}>
                         Tiếp tục
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={showModal} dialogClassName="modal-admin-success" onHide={handleClickClose} centered>
+                <Modal.Body>
+                    <p>Xin lỗi hiện tại chức năng này chưa có !
+                        Vui lòng đăng ký tài khoản !
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="info" onClick={handleClickClose}>
+                        Đóng
                     </Button>
                 </Modal.Footer>
             </Modal>

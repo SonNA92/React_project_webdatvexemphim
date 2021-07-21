@@ -51,6 +51,7 @@
 .user-login-dropdown{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .img-user-login{
     width: 40px;
