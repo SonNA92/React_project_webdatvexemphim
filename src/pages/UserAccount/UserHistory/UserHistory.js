@@ -23,10 +23,10 @@ function UserHistory(props) {
                     {item.danhSachGhe.map((chiTietVe, index) => {                                           
                         return <div key={index} className="mb-3 ml-3">
                             <div className="row">
-                                <div className="col-1 mr-3">    
-                                    <img src="https://picsum.photos/50/50" alt="movie" />
+                                <div className="col-lg-1 col-sm-2 mr-3">    
+                                    <img style={{width:'50px',height:'50px'}} src="https://picsum.photos/75/75" alt="movie" />
                                 </div>
-                                <div className="col-9">
+                                <div className="col-lg-9 col-sm-8">
                                     <h6 className="text-white">{chiTietVe.tenHeThongRap}</h6>
                                     <p className="text-white">Địa chỉ</p> 
                                 </div>
