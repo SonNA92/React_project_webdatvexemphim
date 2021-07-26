@@ -9,7 +9,7 @@
     background-size: cover;
 }
 .admin-page{
-    /* height: 650px; */
+    height: 650px;
     display: flex;
     align-items: center;
     justify-content: center;

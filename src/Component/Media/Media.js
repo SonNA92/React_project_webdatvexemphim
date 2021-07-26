@@ -43,8 +43,8 @@ export default function Media(props) {
                 <div className="col-lg-8 col-md-6 col-sm-12">
                     <NavLink to={item.path}>
                         <h6 className="content-title">{item.title}</h6>
-                        <p className="content-review text-white">{item.content}</p>
-                        <div className="btn-review btn text-white mt-5">Chi tiết</div>
+                        <p className="content-review">{item.content}</p>
+                        <div className="btn-review btn btn-success mt-5">Chi tiết</div>
                     </NavLink>
                 </div>
             </div>

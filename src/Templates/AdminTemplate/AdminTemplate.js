@@ -74,7 +74,7 @@ export const AdminTemplate = (props) => {
                         style={{
                             
                             padding: 30,
-                            minHeight: 800,
+                            minHeight: 700,
                         }}
                     >
                         <props.component {...propsRoute} />

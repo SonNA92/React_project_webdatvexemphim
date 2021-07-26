@@ -8,7 +8,11 @@
     color: white;
 }
 .listfilms .nav-pills .nav-link.active{
-    box-shadow: 1px 1px 10px 7px #888888;
+    /* box-shadow: 1px 1px 10px 7px #888888; */
+    color: black;
+    background-color: white;
+    box-shadow: 1px 1px 10px 3px black inset;
+   
 }
 .listfilms .carousel-inner{
     overflow: unset;
@@ -17,12 +21,13 @@
     height: 430px;
     border: none;
     border-radius: 10px;
-    background-color: inherit;
-    box-shadow: 1px 1px 10px 7px #888888;
+    background-color: white;
+    box-shadow: 1px 5px 30px 3px black inset;
 }
 .carousel-item .card .card-body{
-    background-color: inherit !important;
-    color: white !important;
+    text-align: center;
+    color: black;
+    padding: 6px !important;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -32,12 +37,6 @@
 }
 .carousel-item .animation-overlay{
     border-radius: 10px;
-}
-.carousel-item .card .card-body{
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 6px !important;
 }
 .carousel-item .card-body .card-title{
     margin-top: 10px;
