@@ -59,6 +59,9 @@
 .modal-login-success .modal-footer{
     padding: 0.5rem !important;
 }
+.modal-footer{
+    border-top: none;
+}
 /* CSS IMG */
 .imgLogo{
     width: 200px;

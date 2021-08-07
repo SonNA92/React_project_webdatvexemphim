@@ -90,10 +90,10 @@ export default function Login(props) {
             {/* Modal bật lên khi đăng nhập thành công */}
             <Modal show={show} dialogClassName="modal-login-success" onHide={handleClose} centered>
                 <Modal.Body>
-                    <p>Chúc mừng bạn đã đăng nhập thành công !</p>
                     <div className="img-successful">
                         <img className="w-100" src="/img/img-tich-xanh-3.png" alt="movie" />
                     </div>
+                    <p>Chúc mừng bạn đã đăng nhập thành công !</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="info" onClick={handleClose}>
