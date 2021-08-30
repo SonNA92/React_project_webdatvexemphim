@@ -14,7 +14,7 @@ export const getApiFilmAction = (maNhom) =>{
             }
             dispatch(action)
         } catch (errors) {
-            console.log('errors', errors.response?.data);
+            alert('errors: ' + errors.response?.data);
         }
     }
 }
@@ -30,7 +30,7 @@ export const getFilmDetailAction = (maPhim) => {
             })
 
         }catch(err){
-            console.log(err.response?.data)
+            alert('errors: ' + err.response?.data)
         }
     }
 }
@@ -45,7 +45,7 @@ export const layChiTietPhongVe = (maLichChieu) => {
                 chiTietPhongVe:result.data
             })   
         }catch (err){
-            console.log(err.response?.data);
+            alert('errors: ' + err.response?.data);
         }
     }
 }
@@ -60,7 +60,7 @@ export const layChiTietLichChieuNgay = (maNhom) => {
                 thongTinLichChieuNgay:result.data
             })   
         }catch (err){
-            console.log(err.response?.data);
+            alert('errors: ' + err.response?.data);
         }
     }
 }
@@ -78,7 +78,7 @@ export const timKiemPhimAction = (tenPhim) => {
            
 
         }catch (err){
-            alert(err.response?.data)
+            alert('errors: ' + err.response?.data)
         }
     }
 }
@@ -95,7 +95,7 @@ export const themPhimAction = (formData) =>{
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
-            alert(err.response?.data)
+            alert('errors: ' + err.response?.data)
         }
     }
 }
@@ -111,7 +111,7 @@ export const xoaPhimAction = (maPhim) => {
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
-            alert(err.response?.data)
+            alert('errors: ' + err.response?.data)
         }
     }
 }
@@ -125,7 +125,7 @@ export const layThongTinCumRapTheoHeThong = (maHeThongRap) => {
                 danhSachHeThongRap: result.data
             })
         }catch(error){
-            alert(error.response?.data);
+            alert('errors: ' + error.response?.data);
         }
     }
 
@@ -142,7 +142,7 @@ export const themLichChieuAction = (formData) =>{
             // load lại danh sách lịch chiếu mới
             dispatch(getFilmDetailAction(formData.maPhim))
         }catch(error){
-            alert(error.response?.data);
+            alert('errors: ' + error.response?.data);
         }
     }
 }   
@@ -159,8 +159,7 @@ export const capNhatPhimAction = (formData) => {
             // load lại trang
             dispatch(getApiFilmAction("GP01"));
         }catch (err){
-            alert(err.response?.data)
-            console.log('abc')
+            alert('errors: ' + err.response?.data);
         }
     }
 }

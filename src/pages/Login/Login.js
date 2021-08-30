@@ -101,6 +101,7 @@ export default function Login(props) {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            {/* Modal bật lên khi click login fb,gmail */}
             <Modal show={showModal} dialogClassName="modal-admin-success" onHide={handleClickClose} centered>
                 <Modal.Body>
                     <p>Xin lỗi hiện tại chức năng này chưa có !

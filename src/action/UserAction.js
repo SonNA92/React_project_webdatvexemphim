@@ -18,7 +18,7 @@ export const layDanhSachNgDungAction = () =>{
             }
             dispatch(action)
         } catch (errors) {
-            console.log('errors', errors.response?.data);
+            alert('errors: ' + errors.response?.data);
         }
     }
 }
@@ -32,7 +32,7 @@ export const dangKyAction = (thongTinNguoiDung) => {
             })
             
         }catch (err) {
-            alert(err.response.data);
+            alert('errors: ' + err.response?.data);
         }
     }
 }
@@ -78,7 +78,7 @@ export const datVeAction = (thongTinDatVe) =>{
            
 
         }catch (err) {
-            alert("Lỗi: ",err.response?.data);
+            alert('errors: ' + err.response?.data);
             dispatch(hideLoadingActon);
         }
     }
@@ -97,8 +97,7 @@ export const layThongTinAction = (taiKhoan)=>{
             dispatch(hideLoadingActon);
 
         }catch (err){
-            console.log(err.response.data)
-            alert("Lỗi: input không hợp lệ");
+            alert('errors: ' + err.response?.data);
         }   
     }
 }
@@ -113,9 +112,8 @@ export const capNhatThongTinTaiKhoan = (thongTinTaiKhoan) => {
                 type: SHOW_MODAL
             })
 
-        }catch (err){
-            
-            alert(err.response?.data);
+        }catch (err){  
+            alert('errors: ' + err.response?.data);
         }
     }
 }
@@ -131,7 +129,7 @@ export const themNguoiDungAction = (data) => {
             history.replace('/admin/users');
 
         }catch (err) {
-            alert(err.response.data)
+            alert('errors: ' + err.response?.data);
         }
     }
 }
@@ -147,7 +145,7 @@ export const timKiemNguoiDungAction = (searchKey) => {
             })
 
         }catch (err){
-            alert (err.response.data)
+            alert ('errors: ' + err.response?.data);
         }
     }
 }
@@ -163,7 +161,7 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             dispatch(layDanhSachNgDungAction());
 
         }catch (err){
-            alert(err.response.data);
+            alert('errors: ' + err.response?.data);
         }
     }
 }
