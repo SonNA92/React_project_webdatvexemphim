@@ -71,7 +71,7 @@ body p{
     margin-right: 10px;
     text-align: center;
 }
-.pills-tab-movie .nav-item .nav-link:hover{
+.pills-tab-movie .nav-item .nav-link:hover, .pills-tab-movie .nav-item .nav-link.active:hover{
     background-color: rgb(255, 255, 255);
     color: rgb(255, 153, 0);
 }

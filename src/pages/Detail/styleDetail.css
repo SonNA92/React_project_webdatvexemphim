@@ -17,16 +17,19 @@
     box-shadow: 1px 1px 10px 7px #888888;
     border-radius: 20px;
 }
+.film-detail-content .btn-update:hover{
+    background-color: white;
+}
 .film-Detail .nav-pills .nav-link{
     background-color: inherit;
     color: white;
 }
 .film-Detail .nav-pills .nav-link.active{
-    box-shadow: 1px 1px 10px 7px #888888;
+    color: black;
+    background-color: orange;
 }
 #pills-tabContent-detail{
     padding: 10px;
-    /* border: 2px solid white; */
     box-shadow: 1px 1px 10px 7px #888888;
     background-color: #08080885;
     border-radius: 15px;
@@ -45,9 +48,7 @@
     width: 100%;
 }
 .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab{
-    /* margin: 0 !important; */
     text-align: left !important;
-    /* border-bottom: 1px solid #949494 ; */
 }
 .ant-tabs-ink-bar{
     background-color: orange !important;
