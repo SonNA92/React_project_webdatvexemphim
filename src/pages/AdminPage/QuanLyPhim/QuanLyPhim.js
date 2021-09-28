@@ -10,7 +10,7 @@ export default function QuanLyPhim(props) {
     const {arrFilm} = useSelector(state=>state.FilmReducer);
     const dispatch = useDispatch();
     useEffect(()=> {
-        const action = getApiFilmAction('GP01');
+        const action = getApiFilmAction('GP02');
         dispatch(action)
     },[])
 

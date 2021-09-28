@@ -92,7 +92,7 @@ export default function ListFilm(props) {
                 <ul className="nav nav-pills pills-tab-movie mb-5" id="pills-tab-listfilm" role="tablist">
                     <li className="nav-item" role="presentation" onClick={
                         () => {
-                            dispatch(getApiFilmAction("GP01"))
+                            dispatch(getApiFilmAction("GP04"))
                         }
                     }>
                         <a className="nav-link active" id="pills-home-tab-listfilm" data-toggle="pill" href="#pills-home-listfilm" role="tab" aria-controls="pills-home-listfilm" aria-selected="true">
