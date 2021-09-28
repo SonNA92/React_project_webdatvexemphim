@@ -11,7 +11,7 @@ export default function ListFilm(props) {
     const { arrFilm } = useSelector((state) => state.FilmReducer);
     useEffect(() => {
         // lấy danh sách phim về
-        const action = getApiFilmAction("GP01");
+        const action = getApiFilmAction("GP04");
         dispatch(action);
     },[]);
     // Hàm render phim hiển thị ở trên carousel
