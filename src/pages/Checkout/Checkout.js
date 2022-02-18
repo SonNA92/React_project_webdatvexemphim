@@ -82,7 +82,8 @@ export default function Checkout(props) {
                 <div className="row">
                     <div className="col-lg-8 col-sm-12 mt-5">
                         <div className="text-center">
-                            <img className="w-100" src="https://tix.vn/app/assets/img/icons/screen.png" alt="movie" />
+                            {/* <img className="w-100" src="https://tix.vn/app/assets/img/icons/screen.png" alt="movie" /> */}
+                            <div className='screen'>SCREEN</div>
                             {renderGhe()}
                         </div>
                         <div className="row ml-2 mt-4">

@@ -6,6 +6,13 @@
     /* background-image: url(../../asset/image/bg-night-home-1.jpg); */
     padding-top: 76px;
 }
+.check-out-page .screen{
+    border-top: 10px solid white;
+    width: 70%;
+    text-align: center;
+    margin: 30px auto;
+
+}
 .thongTinPhim, .thongTinRap, .thongTinPay{
     padding: 10px;
     border-radius: 10px;
